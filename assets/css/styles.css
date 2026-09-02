@@ -856,20 +856,19 @@ h1 {
 
 /* Parcours */
 
-.timeline {
+.roles {
   border-block-start: 1px solid var(--border);
 }
 
-.timeline li {
+.role {
   display: grid;
-  grid-template-columns: minmax(0, 8rem) minmax(0, 1fr);
-  gap: 1rem;
-  align-items: baseline;
-  padding-block: 1.4rem;
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+  gap: 0.75rem 2.5rem;
+  padding-block: 2.4rem;
   border-block-end: 1px solid var(--border);
 }
 
-.timeline-year {
+.role-kind {
   font-family: var(--mono);
   font-size: 0.72rem;
   letter-spacing: 0.14em;
@@ -877,14 +876,55 @@ h1 {
   color: var(--accent);
 }
 
-.timeline h3 {
-  font-size: 1.25rem;
+.role-place {
+  margin-block-start: 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 500;
 }
 
-.timeline p {
-  margin-block-start: 0.3rem;
-  font-size: 0.9rem;
+.role-body h3 {
+  font-size: 1.3rem;
+}
+
+.role-lead {
+  max-width: 34rem;
+  margin-block-start: 0.6rem;
+  font-size: 0.95rem;
   color: var(--fg-muted);
+}
+
+.role-points {
+  display: grid;
+  gap: 0.85rem;
+  max-width: 42rem;
+  margin-block-start: 1.4rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--fg-muted);
+}
+
+.role-points li {
+  position: relative;
+  padding-inline-start: 1.15rem;
+}
+
+.role-points li::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0.72em;
+  inset-inline-start: 0;
+  width: 8px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.role-points strong {
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.role-body .chips {
+  margin-block-start: 1.5rem;
 }
 
 .certs {
@@ -1114,9 +1154,9 @@ h1 {
     grid-column: 1 / -1;
   }
 
-  .timeline li {
+  .role {
     grid-template-columns: minmax(0, 1fr);
-    gap: 0.5rem;
+    gap: 1rem;
   }
 
   .study-featured,

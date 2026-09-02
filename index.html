@@ -414,26 +414,108 @@
           </div>
         </header>
 
-        <ol class="timeline">
-          <li data-reveal>
-            <span class="timeline-year">Expérience</span>
-            <div>
-              <h3>Sedi ATI</h3>
-              <p>DevOps</p>
+        <ol class="roles">
+          <li class="role" data-reveal>
+            <div class="role-meta">
+              <p class="role-kind">Expérience</p>
+              <p class="role-place">RentSafe</p>
+            </div>
+            <div class="role-body">
+              <h3>Ingénieur DevOps</h3>
             </div>
           </li>
-          <li data-reveal>
-            <span class="timeline-year">Expérience</span>
-            <div>
-              <h3>RentSafe</h3>
-              <p>DevOps</p>
+
+          <li class="role" data-reveal>
+            <div class="role-meta">
+              <p class="role-kind">Expérience</p>
+              <p class="role-place">Sedi ATI</p>
+            </div>
+            <div class="role-body">
+              <h3>Ingénieur DevOps</h3>
+              <p class="role-lead">
+                Mise en service d’une application de suivi de production utilisée dans
+                l’atelier, et automatisation du travail répétitif des équipes qualité.
+              </p>
+              <ul class="role-points">
+                <li>
+                  <strong>Application FSOP</strong> — pointage des temps sur les lancements de
+                  production, fiches de traçabilité et remontée des données vers l’ERP SILOG.
+                  API Express, interface tablette servie par Nginx, bases SQL Server.
+                </li>
+                <li>
+                  <strong>Chaîne de livraison</strong> — images Docker et fichiers Compose
+                  distincts pour la production, le test et la supervision. Pipelines Jenkins
+                  et workflows GitHub Actions séparés en trois rôles : intégration, tests
+                  rapides et analyse de sécurité.
+                </li>
+                <li>
+                  <strong>Provisionnement en code</strong> — Terraform pour la déclaration des
+                  hôtes, rôle et playbooks Ansible pour préparer puis vérifier le runner qui
+                  dialogue avec l’ERP. Rien de configuré à la main sur les serveurs.
+                </li>
+                <li>
+                  <strong>Qualité outillée</strong> — analyse SonarQube, suites de tests back
+                  et front exécutées en intégration continue sous Linux, tâches planifiées de
+                  nettoyage en production.
+                </li>
+                <li>
+                  <strong>Outillage métier en Python</strong> — génération automatique des
+                  fiches RCI, RE et PV depuis les mesures Excel, et contrôle automatisé des PDF
+                  de test : numéro de série, programme attendu et détection des échecs.
+                </li>
+              </ul>
+              <ul class="chips">
+                <li>Docker</li>
+                <li>Jenkins</li>
+                <li>GitHub Actions</li>
+                <li>Ansible</li>
+                <li>Terraform</li>
+                <li>SonarQube</li>
+                <li>Nginx</li>
+                <li>Node.js</li>
+                <li>SQL Server</li>
+                <li>Python</li>
+              </ul>
             </div>
           </li>
-          <li data-reveal>
-            <span class="timeline-year">Formation</span>
-            <div>
-              <h3>Epitech</h3>
-              <p>Diplômé</p>
+
+          <li class="role" data-reveal>
+            <div class="role-meta">
+              <p class="role-kind">Formation</p>
+              <p class="role-place">Epitech</p>
+            </div>
+            <div class="role-body">
+              <h3>Diplômé — MSc Pro</h3>
+              <p class="role-lead">
+                Un cursus par projets, sans cours magistral : on reçoit un objectif et une
+                documentation, et il faut livrer quelque chose qui tourne.
+              </p>
+              <ul class="role-points">
+                <li>
+                  <strong>Projet d’infrastructure cloud</strong> — provisionnement de machines
+                  AWS avec Terraform, puis montage d’un cluster Kubernetes avec kubeadm et un
+                  CNI, plutôt qu’un service managé, pour voir ce qu’un cluster demande
+                  réellement.
+                </li>
+                <li>
+                  <strong>Exposition et supervision</strong> — contrôleur d’ingress et pile
+                  d’observabilité déployés au-dessus du cluster, image applicative construite
+                  puis publiée dans un registre.
+                </li>
+                <li>
+                  <strong>Deux façons de déployer</strong> — la même application livrée en
+                  chart Helm et en overlays Kustomize, pour arbitrer entre les deux sur pièces
+                  et non sur principe.
+                </li>
+              </ul>
+              <ul class="chips">
+                <li>Terraform</li>
+                <li>kubeadm</li>
+                <li>Kubernetes</li>
+                <li>Helm</li>
+                <li>Kustomize</li>
+                <li>Docker</li>
+              </ul>
             </div>
           </li>
         </ol>
