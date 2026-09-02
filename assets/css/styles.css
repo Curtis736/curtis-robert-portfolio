@@ -294,11 +294,19 @@ svg {
   color: var(--fg-muted);
 }
 
-.chips-lg li {
-  padding: 0.45rem 0.85rem;
-  border-color: var(--border-strong);
-  font-size: 0.8rem;
+.link {
   color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
 }
 
 /* Barre de progression de lecture */
@@ -928,17 +936,65 @@ h1 {
 }
 
 .certs {
-  margin-block-start: 2.5rem;
+  margin-block-start: 4rem;
+  padding-block-start: 2.5rem;
+  border-block-start: 1px solid var(--border);
 }
 
-.certs .chips {
-  margin-block-start: 1rem;
+.cert-grid {
+  display: grid;
+  gap: 1px;
+  margin-block-start: 1.5rem;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 
-.certs-note {
-  margin-block-start: 1rem;
-  font-size: 0.85rem;
+@media (width >= 60rem) {
+  .cert-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.cert {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.75rem 1.5rem;
+  background: var(--bg);
+}
+
+.cert-state {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.cert-state-progress {
   color: var(--fg-dim);
+}
+
+.cert h3 {
+  font-size: 1.02rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.cert-code {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--fg-muted);
+}
+
+.cert-desc {
+  margin-block-start: 0.35rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--fg-muted);
 }
 
 /* À propos */

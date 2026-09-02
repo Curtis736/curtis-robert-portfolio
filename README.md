@@ -98,8 +98,10 @@ en-têtes HTTP de sécurité et utilise un utilisateur non privilégié.
   n'affiche aucun lien.
 - Si un PDF est ajouté, le placer par exemple dans `assets/docs/cv-curtis-robert.pdf`
   puis renseigner ce chemin dans `cvUrl`.
-- Les titres exacts des certifications et les dates d'expérience doivent être
-  ajoutés seulement après vérification.
+- Les certifications sont listées avec leur intitulé et leur code d'examen. La
+  CKA est marquée « en préparation » et ne doit passer à « obtenue » qu'une fois
+  l'examen réussi.
+- Les dates d'expérience restent à ajouter, seulement après vérification.
 
 Le projet `AWS Order Processing Lab` renvoie vers son dépôt GitHub public.
 

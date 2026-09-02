@@ -70,7 +70,7 @@
       </nav>
 
       <div class="topbar-end">
-        <p class="status"><span class="status-dot" aria-hidden="true"></span> Certifié AWS · Terraform · Kubernetes</p>
+        <p class="status"><span class="status-dot" aria-hidden="true"></span> AWS SAA-C03 · Terraform Associate</p>
         <a class="btn btn-solid btn-sm" href="https://github.com/Curtis736" rel="me noopener noreferrer" target="_blank">GitHub</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navigation">
           <span class="sr-only">Ouvrir le menu</span>
@@ -225,7 +225,7 @@
         </header>
 
         <a class="study study-featured" data-reveal href="https://github.com/Curtis736/aws-order-processing-lab" target="_blank" rel="noopener noreferrer">
-          <p class="study-tag">Projet d’entraînement · Préparation AWS SAA-C03</p>
+          <p class="study-tag">Projet d’entraînement · Certification AWS SAA-C03 obtenue</p>
           <div class="study-metric">
             <p class="micro-label">Services AWS mis en œuvre</p>
             <p class="metric">12</p>
@@ -422,6 +422,44 @@
             </div>
             <div class="role-body">
               <h3>Ingénieur DevOps</h3>
+              <p class="role-lead">
+                Déploiement et exploitation de la plateforme en production, servie aujourd’hui
+                sur
+                <a class="link" href="https://www.rentsafe-app.com" rel="noopener">
+                  rentsafe-app.com</a>, sur un cluster Kubernetes hébergé sur AWS.
+              </p>
+              <ul class="role-points">
+                <li>
+                  <strong>Kubernetes en production</strong> — l’application tourne dans un
+                  cluster sur AWS : charges décrites en manifestes, exposition des services par
+                  un contrôleur d’ingress, montées de version sans coupure et retour arrière
+                  possible sur la version précédente.
+                </li>
+                <li>
+                  <strong>Deux chemins d’entrée distincts</strong> — l’interface est distribuée
+                  par CloudFront pour être servie au plus près des utilisateurs, tandis que
+                  l’API passe par un load balancer applicatif en région eu-west-2. Le front et
+                  le back évoluent donc sans se bloquer.
+                </li>
+                <li>
+                  <strong>Environnements séparés</strong> — les ressources portent leur
+                  environnement dans leur nom, ce qui permet de valider un changement ailleurs
+                  qu’en production et de savoir en un coup d’œil sur quoi on intervient.
+                </li>
+                <li>
+                  <strong>Livraison automatisée</strong> — construction des images, publication
+                  dans un registre et déploiement déclenchés par la chaîne d’intégration. Le
+                  déploiement manuel reste l’exception, pas la procédure.
+                </li>
+              </ul>
+              <ul class="chips">
+                <li>Kubernetes</li>
+                <li>AWS</li>
+                <li>CloudFront</li>
+                <li>ALB</li>
+                <li>Docker</li>
+                <li>CI/CD</li>
+              </ul>
             </div>
           </li>
 
@@ -522,12 +560,41 @@
 
         <div class="certs">
           <p class="micro-label">Certifications</p>
-          <ul class="chips chips-lg">
-            <li>AWS</li>
-            <li>Terraform</li>
-            <li>Kubernetes</li>
+          <ul class="cert-grid">
+            <li class="cert" data-reveal>
+              <p class="cert-state">Obtenue</p>
+              <h3>AWS Certified Solutions Architect – Associate</h3>
+              <p class="cert-code">SAA-C03</p>
+              <p class="cert-desc">
+                Concevoir sur AWS des architectures sécurisées, résilientes, performantes et
+                optimisées en coût — les quatre domaines de l’examen. Je l’ai préparée en
+                construisant le projet de traitement de commandes serverless présenté plus
+                haut, plutôt qu’en révisant des questions.
+              </p>
+            </li>
+
+            <li class="cert" data-reveal>
+              <p class="cert-state">Obtenue</p>
+              <h3>HashiCorp Certified: Terraform Associate</h3>
+              <p class="cert-code">003</p>
+              <p class="cert-desc">
+                Décrire une infrastructure en code et en maîtriser le cycle de vie : plan et
+                apply, état distant et verrouillage, modules réutilisables, variables et
+                sorties, importation de ressources existantes.
+              </p>
+            </li>
+
+            <li class="cert" data-reveal>
+              <p class="cert-state cert-state-progress">En préparation</p>
+              <h3>Certified Kubernetes Administrator</h3>
+              <p class="cert-code">CKA</p>
+              <p class="cert-desc">
+                Administration d’un cluster en conditions réelles : installation et
+                configuration, ordonnancement des charges, services et réseau, stockage, et
+                surtout dépannage, qui pèse à lui seul le tiers de l’examen.
+              </p>
+            </li>
           </ul>
-          <p class="certs-note">Intitulés complets, dates et références disponibles sur demande.</p>
         </div>
       </section>
 
@@ -542,10 +609,10 @@
           </h2>
           <div class="about-copy">
             <p>
-              J’ai travaillé sur des sujets DevOps chez Sedi ATI puis chez RentSafe, et je suis
-              certifié sur AWS, Terraform et Kubernetes. Le reste du temps, je monte des
-              environnements complets chez moi — c’est là que je vois si j’ai compris un outil
-              ou si je l’ai seulement recopié.
+              J’ai travaillé sur des sujets DevOps chez Sedi ATI puis chez RentSafe. Je suis
+              certifié AWS Solutions Architect Associate et Terraform Associate, et je prépare
+              la CKA. Le reste du temps, je monte des environnements complets chez moi —
+              c’est là que je vois si j’ai compris un outil ou si je l’ai seulement recopié.
             </p>
             <p>
               Ce qui m’intéresse, c’est la chaîne entière : décrire une plateforme en code, la
@@ -578,7 +645,10 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <svg class="logo-mark logo-mark-lg" viewBox="0 0 60 60" aria-hidden="true" focusable="false"><use href="#monogram-cr"></use></svg>
-          <p>Ingénieur DevOps &amp; Cloud. Diplômé Epitech, certifié AWS, Terraform et Kubernetes.</p>
+          <p>
+            Ingénieur DevOps &amp; Cloud. Diplômé Epitech, certifié AWS Solutions Architect
+            Associate et Terraform Associate.
+          </p>
         </div>
 
         <nav class="footer-col" aria-label="Projets">
