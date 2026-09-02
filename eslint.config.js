@@ -7,6 +7,9 @@ module.exports = [
       globals: {
         document: "readonly",
         window: "readonly"
+      },
+      parserOptions: {
+        ecmaVersion: 2022
       }
     },
     rules: {

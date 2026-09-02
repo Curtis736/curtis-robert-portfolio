@@ -8,25 +8,29 @@ projets DevOps et Cloud de Curtis Robert.
 
 ## Direction visuelle
 
-Le site est composé comme un dossier de travaux imprimé plutôt que comme une
-page d'accueil de produit.
+Le site est bâti autour d'une idée simple : chaque projet est présenté comme une
+étude d'ingénierie, avec un chiffre mesuré mis en avant.
 
-- **Papier et encre** : fond ivoire `#f1ece1`, encre chaude `#1b1813`, un seul
-  accent rouge d'imprimerie `#a13a24`. Un grain léger en surimpression.
-- **Typographie** : texte courant en serif (`Iowan Old Style`, repli Palatino
-  puis Georgia), libellés en Helvetica capitalisée. Aucune police distante,
-  donc aucune requête vers un tiers.
-- **Codes d'imprimé** : sommaire à points de conduite, numéros de feuillet en
-  marge, lettrine, notes en marge, registre à filets, colophon final.
-- **Planche technique** : le chemin d'une commande dans
-  `aws-order-processing-lab` est dessiné en SVG à la main, aux mêmes filets que
-  le reste de la page.
-- **Grille** : bloc de composition de 76 rem centré, colonne de texte limitée à
-  34 rem, marge de notes à droite. La mise en page est volontairement
-  asymétrique.
+- **Palette** : fond `#020204`, surfaces `#07070a` et `#0a0a0e`, texte `#f4f4f7`.
+  Un seul accent rouge, décliné en deux valeurs — `#f9233a` pour le texte sur
+  fond noir et `#d81e30` pour les boutons pleins, afin de garder un contraste
+  suffisant avec le blanc.
+- **Typographie** : Geist pour les titres, avec un interlettrage négatif marqué,
+  Geist Mono pour les micro-libellés capitalisés, Instrument Serif en italique
+  pour les incises. Les trois fontes sont hébergées dans le dépôt
+  (144 Ko, sous-ensemble latin), donc aucune requête vers un tiers.
+- **Chiffres réels** : les valeurs affichées sont comptées dans les dépôts
+  (ressources Terraform, objets Kubernetes, services AWS, durée de CI), pas
+  estimées. Les projets personnels sont explicitement présentés comme tels.
+- **Fond animé** : champ d'étoiles et globe filaire dessinés à la main sur un
+  canvas 2D, sans bibliothèque 3D. La boucle s'arrête dès que le héro quitte
+  l'écran, et un seul rendu statique est produit si le visiteur a demandé à
+  réduire les animations.
+- **Grille** : bloc de composition de 68 rem centré, bandes séparées par des
+  filets à un pixel, alternance de fonds pour marquer les sections.
 
-Tout tient dans un fichier HTML et une feuille de style ; le JavaScript ne sert
-qu'au menu mobile et aux liens optionnels.
+Tout tient dans un fichier HTML, une feuille de style et un script, sans
+framework ni étape de compilation.
 
 ## Structure
 
@@ -35,8 +39,9 @@ qu'au menu mobile et aux liens optionnels.
 ├── index.html                 # contenu et métadonnées
 ├── assets/
 │   ├── css/styles.css         # identité visuelle et responsive
+│   ├── fonts/                 # Geist, Geist Mono, Instrument Serif (SIL OFL 1.1)
 │   └── js/
-│       ├── main.js            # menu et liens optionnels
+│       ├── main.js            # canvas, progression, révélations, menu
 │       └── site.config.js     # LinkedIn, e-mail et CV
 ├── terraform/                 # S3 privé + CloudFront OAC
 ├── .github/workflows/         # contrôles et déploiement manuel

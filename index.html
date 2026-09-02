@@ -3,19 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f1ece1">
-    <meta name="description" content="Curtis Robert, ingénieur DevOps et Cloud. Travaux d’infrastructure autour d’AWS, Kubernetes, Terraform et de la livraison continue.">
+    <meta name="theme-color" content="#020204">
+    <meta name="description" content="Curtis Robert, ingénieur DevOps et Cloud. Projets AWS, Kubernetes, Terraform et livraison continue, avec les chiffres mesurés de chaque build.">
     <meta name="author" content="Curtis Robert">
     <meta property="og:type" content="profile">
     <meta property="og:locale" content="fr_FR">
-    <meta property="og:title" content="Curtis Robert — Travaux d’infrastructure">
-    <meta property="og:description" content="Ingénieur DevOps et Cloud. Dossier de travaux autour d’AWS, Kubernetes, Terraform et de la livraison continue.">
+    <meta property="og:title" content="Curtis Robert — Ingénieur DevOps &amp; Cloud">
+    <meta property="og:description" content="Projets AWS, Kubernetes, Terraform et livraison continue, avec les chiffres mesurés de chaque build.">
     <meta property="og:url" content="https://curtis736.github.io/curtis-robert-portfolio/">
     <meta property="profile:first_name" content="Curtis">
     <meta property="profile:last_name" content="Robert">
     <meta name="twitter:card" content="summary">
-    <title>Curtis Robert — Travaux d’infrastructure</title>
+    <title>Curtis Robert — Ingénieur DevOps &amp; Cloud</title>
     <link rel="canonical" href="https://curtis736.github.io/curtis-robert-portfolio/">
+    <link rel="preload" href="assets/fonts/geist-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/geist-mono-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="assets/css/styles.css">
     <script type="application/ld+json">
       {
@@ -37,486 +39,480 @@
   </head>
   <body>
     <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <div class="progress" data-progress aria-hidden="true"></div>
 
     <header class="topbar">
-      <a class="runhead" href="#ouverture">
-        <span class="runhead-name">Curtis Robert</span>
-        <span class="runhead-role">Ingénieur DevOps &amp; Cloud</span>
-      </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navigation">
-        <span class="sr-only">Ouvrir le menu</span>
-        <span class="nav-toggle-bars" aria-hidden="true"></span>
-      </button>
-      <nav id="navigation" class="site-nav" aria-label="Navigation principale">
-        <a href="#intention"><span class="num" aria-hidden="true">I</span> Intention</a>
-        <a href="#parcours"><span class="num" aria-hidden="true">II</span> Parcours</a>
-        <a href="#travaux"><span class="num" aria-hidden="true">III</span> Travaux</a>
-        <a href="#outillage"><span class="num" aria-hidden="true">IV</span> Outillage</a>
-        <a href="#contact"><span class="num" aria-hidden="true">V</span> Contact</a>
+      <a class="logo" href="#accueil" aria-label="Curtis Robert — retour en haut">CR<span aria-hidden="true">.</span></a>
+
+      <nav id="navigation" class="nav" aria-label="Navigation principale">
+        <a href="#competences">Compétences</a>
+        <a href="#projets">Projets</a>
+        <a href="#parcours">Parcours</a>
+        <a href="#apropos">À propos</a>
       </nav>
+
+      <div class="topbar-end">
+        <p class="status"><span class="status-dot" aria-hidden="true"></span> Certifié AWS · Terraform · Kubernetes</p>
+        <a class="btn btn-solid btn-sm" href="https://github.com/Curtis736" rel="me noopener noreferrer" target="_blank">GitHub</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navigation">
+          <span class="sr-only">Ouvrir le menu</span>
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+      </div>
     </header>
 
     <main id="contenu">
-      <section id="ouverture" class="opening" aria-labelledby="titre-principal">
-        <div class="opening-main">
-          <p class="label">Dossier de travaux · Infrastructure &amp; Cloud</p>
-          <h1 id="titre-principal">Curtis<span>Robert</span></h1>
-          <p class="statement">
-            Je travaille sur ce qui se trouve entre le code et la production&#8239;: la façon
-            dont on le déploie, dont on l’observe, et dont on paie ce qu’il consomme.
+      <section id="accueil" class="hero" aria-labelledby="hero-title">
+        <canvas class="hero-canvas" data-starfield aria-hidden="true"></canvas>
+        <div class="hero-inner">
+          <p class="kicker">Ingénieur DevOps &amp; Cloud — Diplômé Epitech</p>
+          <h1 id="hero-title">Bonjour, je suis <span class="nowrap">Curtis Robert.</span></h1>
+          <p class="hero-lead">
+            Je construis des infrastructures cloud, des chaînes de déploiement et des
+            environnements que je casse volontairement pour comprendre comment ils tiennent.
+            Chaque projet ci-dessous est un dépôt public, avec sa CI, sa documentation et ses
+            chiffres mesurés.
           </p>
-          <dl class="opening-facts">
-            <div>
-              <dt>Formation</dt>
-              <dd>Epitech</dd>
-            </div>
-            <div>
-              <dt>Expériences</dt>
-              <dd>Sedi ATI · RentSafe</dd>
-            </div>
-            <div>
-              <dt>Certifications</dt>
-              <dd>AWS · Terraform · Kubernetes</dd>
-            </div>
-          </dl>
-        </div>
-
-        <div class="opening-index">
-          <h2 class="label">Sommaire</h2>
-          <ul class="index">
-            <li>
-              <a href="#intention">
-                <span class="num" aria-hidden="true">I</span>
-                <span class="index-title">Intention</span>
-                <span class="dots" aria-hidden="true"></span>
-                <span class="index-note">Méthode</span>
-              </a>
-            </li>
-            <li>
-              <a href="#parcours">
-                <span class="num" aria-hidden="true">II</span>
-                <span class="index-title">Parcours</span>
-                <span class="dots" aria-hidden="true"></span>
-                <span class="index-note">Expérience &amp; formation</span>
-              </a>
-            </li>
-            <li>
-              <a href="#travaux">
-                <span class="num" aria-hidden="true">III</span>
-                <span class="index-title">Travaux</span>
-                <span class="dots" aria-hidden="true"></span>
-                <span class="index-note">Six dépôts</span>
-              </a>
-            </li>
-            <li>
-              <a href="#outillage">
-                <span class="num" aria-hidden="true">IV</span>
-                <span class="index-title">Outillage</span>
-                <span class="dots" aria-hidden="true"></span>
-                <span class="index-note">Services &amp; outils</span>
-              </a>
-            </li>
-            <li>
-              <a href="#contact">
-                <span class="num" aria-hidden="true">V</span>
-                <span class="index-title">Contact</span>
-                <span class="dots" aria-hidden="true"></span>
-                <span class="index-note">GitHub</span>
-              </a>
-            </li>
-          </ul>
-          <a class="mark" href="https://github.com/Curtis736" rel="me noopener noreferrer" target="_blank">
-            github.com/Curtis736 <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
-
-      <section id="intention" class="leaf" aria-labelledby="titre-intention">
-        <p class="folio" aria-hidden="true">I</p>
-        <div class="leaf-body">
-          <h2 id="titre-intention" class="leaf-title">Casser, réparer, comprendre</h2>
-          <div class="leaf-split">
-            <div class="prose">
-              <p class="prose-open">
-                L’infrastructure ne pardonne pas l’approximation. Un manifeste incomplet
-                n’échoue pas «&#8239;un peu&#8239;»&#8239;: il refuse de démarrer, ou il tient
-                quelques semaines avant de céder au pire moment. C’est précisément ce qui
-                m’intéresse dans ce métier.
-              </p>
-              <p>
-                J’apprends donc en construisant des systèmes entiers, puis en les mettant
-                volontairement en difficulté&#8239;: une file qui déborde, un message qui finit
-                en file de rebut, un rôle trop permissif, une facture qui monte plus vite que
-                le trafic. Réparer ces situations m’apprend davantage qu’une documentation
-                lue seule.
-              </p>
-              <p>
-                Les dépôts réunis dans ce dossier viennent de cette pratique. Ils sont petits,
-                lisibles, testés et documentés — y compris dans leurs limites.
-              </p>
-            </div>
-            <aside class="note">
-              <p class="label">Note</p>
-              <p>
-                Ces environnements sont dimensionnés pour l’apprentissage, pas pour la
-                production&#8239;: une seule zone quand elle suffit, des ressources minimales,
-                et une destruction systématique après l’exercice.
-              </p>
-            </aside>
-          </div>
-        </div>
-      </section>
-
-      <section id="parcours" class="leaf" aria-labelledby="titre-parcours">
-        <p class="folio" aria-hidden="true">II</p>
-        <div class="leaf-body">
-          <h2 id="titre-parcours" class="leaf-title">Parcours</h2>
-          <ol class="ledger">
-            <li class="ledger-row">
-              <span class="ledger-index" aria-hidden="true">01</span>
-              <div class="ledger-main">
-                <h3>Sedi ATI</h3>
-                <span class="ledger-role">DevOps</span>
-              </div>
-              <span class="ledger-kind">Expérience</span>
-            </li>
-            <li class="ledger-row">
-              <span class="ledger-index" aria-hidden="true">02</span>
-              <div class="ledger-main">
-                <h3>RentSafe</h3>
-                <span class="ledger-role">DevOps</span>
-              </div>
-              <span class="ledger-kind">Expérience</span>
-            </li>
-            <li class="ledger-row">
-              <span class="ledger-index" aria-hidden="true">03</span>
-              <div class="ledger-main">
-                <h3>Epitech</h3>
-                <span class="ledger-role">Diplômé</span>
-              </div>
-              <span class="ledger-kind">Formation</span>
-            </li>
-          </ol>
-          <p class="ledger-foot">
-            Certifications AWS, Terraform et Kubernetes. Intitulés complets, dates et
-            références disponibles sur demande.
-          </p>
-        </div>
-      </section>
-
-      <section id="travaux" class="leaf" aria-labelledby="titre-travaux">
-        <p class="folio" aria-hidden="true">III</p>
-        <div class="leaf-body">
-          <h2 id="titre-travaux" class="leaf-title">Travaux</h2>
-          <p class="leaf-intro">
-            Chaque entrée est un dépôt autonome, avec sa chaîne d’intégration et sa
-            documentation. Les dépôts TaskBoard forment une même suite&#8239;: une seule
-            application, suivie de l’API jusqu’à son exploitation et son coût.
-          </p>
-
-          <article class="work work-plate">
-            <p class="work-number" aria-hidden="true">01</p>
-            <div class="work-body">
-              <h3>
-                <a href="https://github.com/Curtis736/aws-order-processing-lab" target="_blank" rel="noopener noreferrer">
-                  AWS Order Processing Lab <span aria-hidden="true">↗</span>
-                </a>
-              </h3>
-              <p class="work-thesis">
-                Une commande qui traverse six services managés, et tout ce qui peut mal
-                tourner en route.
-              </p>
-              <p>
-                API Gateway et Lambda à l’entrée, DynamoDB à la demande pour l’état,
-                EventBridge puis SQS pour découpler le traitement, et une file de rebut pour
-                les messages qui échouent. Le frontend est servi par CloudFront devant un
-                bucket privé. Terraform décrit l’ensemble&#8239;; Checkov et des exercices de
-                panne documentés vérifient que je sais ce que j’ai déployé.
-              </p>
-
-              <figure class="plate">
-                <div class="plate-scroll">
-                  <svg class="plate-figure" viewBox="0 0 600 322" aria-hidden="true">
-                    <defs>
-                      <marker id="plate-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-                        <path d="M0 1 L7 4 L0 7" />
-                      </marker>
-                    </defs>
-                    <g class="plate-box">
-                      <rect x="20" y="62" width="110" height="44" />
-                      <rect x="170" y="20" width="110" height="44" />
-                      <rect x="320" y="20" width="110" height="44" />
-                      <rect x="170" y="104" width="110" height="44" />
-                      <rect x="320" y="104" width="110" height="44" />
-                      <rect x="470" y="104" width="110" height="44" />
-                      <rect x="320" y="188" width="110" height="44" />
-                      <rect x="470" y="188" width="110" height="44" />
-                      <rect x="470" y="258" width="110" height="44" />
-                      <rect x="320" y="258" width="110" height="44" />
-                    </g>
-                    <g class="plate-line" marker-end="url(#plate-arrow)">
-                      <path d="M130 74 H150 V42 H170" />
-                      <path d="M130 94 H150 V126 H170" />
-                      <path d="M280 42 H320" />
-                      <path d="M280 126 H320" />
-                      <path d="M430 126 H470" />
-                      <path d="M375 148 V188" />
-                      <path d="M430 210 H470" />
-                      <path d="M545 232 V258" />
-                    </g>
-                    <g class="plate-line plate-line-dashed" marker-end="url(#plate-arrow)">
-                      <path d="M500 232 V245 H375 V258" />
-                    </g>
-                    <g class="plate-label">
-                      <text x="75" y="89">Client</text>
-                      <text x="225" y="47">CloudFront</text>
-                      <text x="375" y="47">S3 privé</text>
-                      <text x="225" y="131">API HTTP</text>
-                      <text x="375" y="131">Lambda</text>
-                      <text x="525" y="131">DynamoDB</text>
-                      <text x="375" y="215">EventBridge</text>
-                      <text x="525" y="215">SQS</text>
-                      <text x="525" y="285">Worker</text>
-                      <text x="375" y="285">Rebut</text>
-                    </g>
-                  </svg>
-                </div>
-                <figcaption>
-                  Planche 01 — chemin d’une commande&#8239;: le client lit le frontend via
-                  CloudFront, écrit par l’API HTTP vers Lambda et DynamoDB, puis l’événement
-                  part sur EventBridge et SQS vers le worker. En pointillé, les messages
-                  renvoyés vers la file de rebut après trois échecs.
-                </figcaption>
-              </figure>
-
-              <p class="work-meta">
-                <span class="label">Composition</span>
-                <span>AWS · Python · Terraform · Checkov</span>
-                <code>aws-order-processing-lab</code>
-              </p>
-            </div>
-          </article>
-
-          <article class="work">
-            <p class="work-number" aria-hidden="true">02</p>
-            <div class="work-body">
-              <h3>
-                <a href="https://github.com/Curtis736/hop-url" target="_blank" rel="noopener noreferrer">
-                  Hop URL <span aria-hidden="true">↗</span>
-                </a>
-              </h3>
-              <p class="work-thesis">
-                Le plus petit service utile que je pouvais industrialiser entièrement.
-              </p>
-              <p>
-                Un raccourcisseur d’URL en FastAPI&#8239;: création du code, redirection,
-                comptage. L’intérêt n’est pas le service mais la chaîne autour — image
-                non-root, analyse Trivy, publication de l’image, manifests Kubernetes pour
-                kind et un point <code>/metrics</code> au format Prometheus.
-              </p>
-              <p class="work-meta">
-                <span class="label">Composition</span>
-                <span>FastAPI · Docker · Kubernetes · Prometheus</span>
-                <code>hop-url</code>
-              </p>
-            </div>
-          </article>
-
-          <article class="work">
-            <p class="work-number" aria-hidden="true">03</p>
-            <div class="work-body">
-              <h3>
-                <a href="https://github.com/Curtis736/taskboard-k8s" target="_blank" rel="noopener noreferrer">
-                  TaskBoard Kubernetes <span aria-hidden="true">↗</span>
-                </a>
-              </h3>
-              <p class="work-thesis">Le même déploiement, écrit deux fois.</p>
-              <p>
-                Overlays Kustomize pour les environnements, chart Helm en parallèle, politiques
-                réseau, probes, contraintes de sécurité sur les conteneurs et validation de
-                schéma en intégration continue. Écrire les deux m’a montré où chacun est
-                réellement pertinent.
-              </p>
-              <p class="work-meta">
-                <span class="label">Composition</span>
-                <span>Kubernetes · Kustomize · Helm · kind</span>
-                <code>taskboard-k8s</code>
-              </p>
-            </div>
-          </article>
-
-          <article class="work">
-            <p class="work-number" aria-hidden="true">04</p>
-            <div class="work-body">
-              <h3>
-                <a href="https://github.com/Curtis736/taskboard-gitops" target="_blank" rel="noopener noreferrer">
-                  TaskBoard GitOps <span aria-hidden="true">↗</span>
-                </a>
-              </h3>
-              <p class="work-thesis">Ne plus déployer à la main, même en local.</p>
-              <p>
-                Applications Argo CD qui synchronisent le cluster depuis Git. L’état voulu vit
-                dans le dépôt, pas dans mon historique de commandes.
-              </p>
-              <p class="work-meta">
-                <span class="label">Composition</span>
-                <span>Argo CD · GitOps · Kubernetes</span>
-                <code>taskboard-gitops</code>
-              </p>
-            </div>
-          </article>
-
-          <article class="work">
-            <p class="work-number" aria-hidden="true">05</p>
-            <div class="work-body">
-              <h3>
-                <a href="https://github.com/Curtis736/aws-ecs-terraform" target="_blank" rel="noopener noreferrer">
-                  TaskBoard sur AWS <span aria-hidden="true">↗</span>
-                </a>
-              </h3>
-              <p class="work-thesis">La même API, mais sur des services managés et avec une facture.</p>
-              <p>
-                VPC sur deux zones de disponibilité, ECS Fargate en 0,25 vCPU et 512 Mio, load
-                balancer applicatif, registre d’images, rôles au plus juste et fédération OIDC
-                pour l’intégration continue. Volontairement dimensionné petit, et détruit après
-                chaque exercice.
-              </p>
-              <p class="work-meta">
-                <span class="label">Composition</span>
-                <span>AWS · ECS Fargate · Terraform · OIDC</span>
-                <code>aws-ecs-terraform</code>
-              </p>
-            </div>
-          </article>
-
-          <article class="work">
-            <p class="work-number" aria-hidden="true">06</p>
-            <div class="work-body">
-              <h3>
-                <a href="https://github.com/Curtis736/taskboard-observability" target="_blank" rel="noopener noreferrer">
-                  TaskBoard Observabilité <span aria-hidden="true">↗</span>
-                </a>
-              </h3>
-              <p class="work-thesis">Un déploiement dont je ne vois rien ne m’apprend rien.</p>
-              <p>
-                Prometheus et Grafana provisionnés par manifests, branchés sur les métriques de
-                l’API, pour relier une charge à ce qu’elle produit réellement côté service.
-              </p>
-              <p class="work-meta">
-                <span class="label">Composition</span>
-                <span>Prometheus · Grafana · Kustomize</span>
-                <code>taskboard-observability</code>
-              </p>
-            </div>
-          </article>
-
-          <details class="annex">
-            <summary>
-              <span>Annexe — cinq autres dépôts</span>
-              <span class="annex-sign" aria-hidden="true"></span>
-            </summary>
-            <ul class="annex-list">
-              <li>
-                <a href="https://github.com/Curtis736/taskboard-api" target="_blank" rel="noopener noreferrer">
-                  <span>TaskBoard API</span>
-                  <span class="dots" aria-hidden="true"></span>
-                  <small>FastAPI, tests, image non-root, analyse Trivy</small>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/Curtis736/taskboard-finops" target="_blank" rel="noopener noreferrer">
-                  <span>TaskBoard FinOps</span>
-                  <span class="dots" aria-hidden="true"></span>
-                  <small>Budgets, étiquettes de coût, détection d’anomalies</small>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/Curtis736/taskboard-performance" target="_blank" rel="noopener noreferrer">
-                  <span>TaskBoard Performance</span>
-                  <span class="dots" aria-hidden="true"></span>
-                  <small>Politiques de cache, autoscaling, scénarios k6</small>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/Curtis736/taskboard-terraform-modules" target="_blank" rel="noopener noreferrer">
-                  <span>Modules Terraform</span>
-                  <span class="dots" aria-hidden="true"></span>
-                  <small>Briques réutilisables, étiquettes communes, OIDC</small>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/Curtis736/taskboard-actions" target="_blank" rel="noopener noreferrer">
-                  <span>TaskBoard Actions</span>
-                  <span class="dots" aria-hidden="true"></span>
-                  <small>Workflows d’intégration réutilisables</small>
-                </a>
-              </li>
-            </ul>
-          </details>
-        </div>
-      </section>
-
-      <section id="outillage" class="leaf" aria-labelledby="titre-outillage">
-        <p class="folio" aria-hidden="true">IV</p>
-        <div class="leaf-body">
-          <h2 id="titre-outillage" class="leaf-title">Outillage</h2>
-          <dl class="kit">
-            <div>
-              <dt>Cloud</dt>
-              <dd>API Gateway, Lambda, DynamoDB, EventBridge, SQS, ECS Fargate, S3, CloudFront, Cognito</dd>
-            </div>
-            <div>
-              <dt>Conteneurs</dt>
-              <dd>Docker, Kubernetes, Helm, Kustomize, kind, images non-root</dd>
-            </div>
-            <div>
-              <dt>Infrastructure as code</dt>
-              <dd>Terraform, modules réutilisables, état distant, Checkov</dd>
-            </div>
-            <div>
-              <dt>Livraison</dt>
-              <dd>GitHub Actions, Argo CD, GHCR, Trivy, fédération OIDC</dd>
-            </div>
-            <div>
-              <dt>Observabilité</dt>
-              <dd>Prometheus, Grafana, CloudWatch, alarmes, k6</dd>
-            </div>
-            <div>
-              <dt>Coûts</dt>
-              <dd>Budgets, étiquettes de répartition, dimensionnement, anomalies</dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-
-      <section id="contact" class="closing" aria-labelledby="titre-contact">
-        <p class="folio" aria-hidden="true">V</p>
-        <div class="closing-body">
-          <h2 id="titre-contact">Parlons infrastructure, livraison et coûts.</h2>
-          <p>
-            Mon activité technique est publique&#8239;: le code, les chaînes de déploiement et
-            les décisions d’architecture se lisent directement dans chaque dépôt.
-          </p>
-          <div class="closing-links">
-            <a class="mark mark-invert" href="https://github.com/Curtis736" target="_blank" rel="me noopener noreferrer">
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="#projets">Voir les projets</a>
+            <a class="btn btn-ghost" href="https://github.com/Curtis736" rel="me noopener noreferrer" target="_blank">
               github.com/Curtis736 <span aria-hidden="true">↗</span>
             </a>
-            <div class="optional-links" data-optional-links></div>
           </div>
+        </div>
+      </section>
+
+      <section class="band band-tech" aria-label="Technologies utilisées au quotidien">
+        <p class="micro-label">Technologies que j’utilise au quotidien</p>
+        <ul class="tech-row">
+          <li>AWS</li>
+          <li>Terraform</li>
+          <li>Kubernetes</li>
+          <li>Docker</li>
+          <li>Argo CD</li>
+          <li>GitHub Actions</li>
+          <li>Prometheus</li>
+          <li>Grafana</li>
+          <li>Helm</li>
+          <li>Python</li>
+        </ul>
+      </section>
+
+      <section class="band band-stats" aria-label="Chiffres du portfolio">
+        <dl class="stats">
+          <div class="stat" data-reveal>
+            <dt><span class="stat-value" data-count="13">13</span></dt>
+            <dd>Dépôts publics</dd>
+          </div>
+          <div class="stat" data-reveal>
+            <dt><span class="stat-value" data-count="121">121</span></dt>
+            <dd>Ressources Terraform décrites</dd>
+          </div>
+          <div class="stat" data-reveal>
+            <dt><span class="stat-value" data-count="18">18</span></dt>
+            <dd>Workflows d’intégration continue</dd>
+          </div>
+          <div class="stat" data-reveal>
+            <dt><span class="stat-value" data-count="12">12</span></dt>
+            <dd>Services AWS mis en œuvre</dd>
+          </div>
+        </dl>
+        <p class="stats-note">
+          Chiffres comptés dans les dépôts, pas arrondis à la hausse. Le détail est vérifiable
+          fichier par fichier sur GitHub.
+        </p>
+      </section>
+
+      <section id="competences" class="band" aria-labelledby="competences-title">
+        <header class="band-head">
+          <div>
+            <p class="micro-label micro-accent">Domaines 01</p>
+            <h2 id="competences-title" class="micro-title">Ce sur quoi je travaille</h2>
+          </div>
+          <a class="text-arrow" href="#projets">Voir les projets <span aria-hidden="true">↗</span></a>
+        </header>
+
+        <div class="cards">
+          <article class="card" data-reveal>
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2.5 21 7v10l-9 4.5L3 17V7z"></path><path d="M3 7l9 4.5L21 7"></path><path d="M12 11.5V21"></path></svg>
+            </span>
+            <h3>Plateformes Kubernetes</h3>
+            <p>
+              Manifests et charts pour des clusters locaux : overlays par environnement,
+              politiques réseau, probes, contraintes de sécurité et synchronisation Argo CD.
+            </p>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </article>
+
+          <article class="card" data-reveal>
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"></circle><circle cx="6" cy="18" r="2.5"></circle><circle cx="18" cy="12" r="2.5"></circle><path d="M6 8.5v7"></path><path d="M8.5 6h4a3 3 0 0 1 3 3v1"></path><path d="M8.5 18h4a3 3 0 0 0 3-3v-1"></path></svg>
+            </span>
+            <h3>Chaînes de livraison</h3>
+            <p>
+              Pipelines GitHub Actions qui vérifient, construisent, analysent et publient :
+              lint, tests, images non-root, analyse Trivy et fédération OIDC plutôt que des clés.
+            </p>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </article>
+
+          <article class="card" data-reveal>
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 16.5a4 4 0 0 1 1.4-7.7 5.5 5.5 0 0 1 10.6-1.6A4.25 4.25 0 0 1 20 16.5z"></path></svg>
+            </span>
+            <h3>Infrastructure AWS avec Terraform</h3>
+            <p>
+              Architectures serverless et conteneurisées décrites en code : état distant,
+              rôles au plus juste, analyse Checkov et coûts tenus sous contrôle.
+            </p>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="band band-raised" aria-labelledby="methode-title">
+        <header class="band-head">
+          <p class="micro-label">Ma méthode</p>
+          <a class="text-arrow" href="#apropos">À propos <span aria-hidden="true">→</span></a>
+        </header>
+        <div class="statement">
+          <h2 id="methode-title">
+            Je construis des systèmes entiers, puis je les mets
+            <em>volontairement en difficulté.</em>
+          </h2>
+          <p>
+            Un tutoriel montre comment démarrer un cluster. Il ne montre presque jamais ce qui
+            se passe quand une file déborde, quand un rôle est trop permissif ou quand la
+            facture monte plus vite que le trafic. C’est là que j’apprends.
+          </p>
+          <ul class="bullets">
+            <li>Tout en code : aucune ressource créée à la main dans une console</li>
+            <li>Chaque dépôt a sa CI, sa documentation et ses limites écrites noir sur blanc</li>
+            <li>Des scénarios de panne rejouables plutôt que des captures d’écran</li>
+            <li>Environnements détruits après chaque exercice, coût vérifié</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projets" class="band" aria-labelledby="projets-title">
+        <header class="band-head">
+          <div>
+            <p class="micro-label micro-accent">Projets 02</p>
+            <h2 id="projets-title" class="micro-title">Sélection</h2>
+          </div>
+          <a class="text-arrow" href="https://github.com/Curtis736?tab=repositories" rel="noopener noreferrer" target="_blank">
+            Tous les dépôts <span aria-hidden="true">↗</span>
+          </a>
+        </header>
+
+        <a class="study study-featured" data-reveal href="https://github.com/Curtis736/aws-order-processing-lab" target="_blank" rel="noopener noreferrer">
+          <p class="study-tag">Projet d’entraînement · Préparation AWS SAA-C03</p>
+          <div class="study-metric">
+            <p class="micro-label">Services AWS mis en œuvre</p>
+            <p class="metric">12</p>
+          </div>
+          <h3>Traitement de commandes serverless sur AWS</h3>
+          <p class="study-desc">
+            Une commande traverse API Gateway, Lambda et DynamoDB, puis part sur EventBridge et
+            SQS vers un worker, avec file de rebut après trois échecs. Le frontend est servi par
+            CloudFront devant un bucket privé, et Cognito protège l’écriture. 47 ressources
+            Terraform, analysées par Checkov, avec des scénarios de panne documentés.
+          </p>
+          <p class="study-honest">
+            Projet personnel construit pour apprendre, pas une mission client. Dimensionné pour
+            coûter presque rien et détruit après chaque exercice.
+          </p>
+          <ul class="chips">
+            <li>Terraform</li>
+            <li>Lambda</li>
+            <li>DynamoDB</li>
+            <li>EventBridge</li>
+            <li>SQS</li>
+            <li>Cognito</li>
+            <li>Checkov</li>
+          </ul>
+          <span class="study-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <div class="study-grid">
+          <a class="study" data-reveal href="https://github.com/Curtis736/hop-url" target="_blank" rel="noopener noreferrer">
+            <p class="study-tag">Service &amp; conteneur</p>
+            <div class="study-metric">
+              <p class="micro-label">CI complète, dernière exécution</p>
+              <p class="metric">100 s</p>
+            </div>
+            <h3>Hop URL</h3>
+            <p class="study-desc">
+              Le plus petit service utile que je pouvais industrialiser entièrement : un
+              raccourcisseur d’URL en FastAPI. L’intérêt est la chaîne autour — 8 tests, image
+              non-root, analyse Trivy, publication de l’image, manifests pour kind et un point
+              <code>/metrics</code> au format Prometheus.
+            </p>
+            <ul class="chips">
+              <li>FastAPI</li>
+              <li>Docker</li>
+              <li>Kubernetes</li>
+              <li>Prometheus</li>
+            </ul>
+            <span class="study-arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <a class="study" data-reveal href="https://github.com/Curtis736/taskboard-k8s" target="_blank" rel="noopener noreferrer">
+            <p class="study-tag">Orchestration</p>
+            <div class="study-metric">
+              <p class="micro-label">Objets Kubernetes décrits</p>
+              <p class="metric">19</p>
+            </div>
+            <h3>TaskBoard Kubernetes</h3>
+            <p class="study-desc">
+              Le même déploiement écrit deux fois, en Kustomize et en Helm, pour comprendre où
+              chacun est réellement pertinent. Overlays par environnement, politiques réseau,
+              probes, contraintes de sécurité et validation de schéma en intégration continue.
+            </p>
+            <ul class="chips">
+              <li>Kubernetes</li>
+              <li>Kustomize</li>
+              <li>Helm</li>
+              <li>kind</li>
+            </ul>
+            <span class="study-arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <a class="study" data-reveal href="https://github.com/Curtis736/aws-ecs-terraform" target="_blank" rel="noopener noreferrer">
+            <p class="study-tag">Cloud &amp; infrastructure as code</p>
+            <div class="study-metric">
+              <p class="micro-label">Ressources Terraform</p>
+              <p class="metric">32</p>
+            </div>
+            <h3>TaskBoard sur AWS</h3>
+            <p class="study-desc">
+              La même API, mais sur des services managés et avec une facture. VPC sur deux zones
+              de disponibilité, ECS Fargate en 0,25 vCPU et 512 Mio, load balancer applicatif,
+              registre d’images, rôles au plus juste et fédération OIDC pour la CI.
+            </p>
+            <ul class="chips">
+              <li>ECS Fargate</li>
+              <li>Terraform</li>
+              <li>ALB</li>
+              <li>OIDC</li>
+            </ul>
+            <span class="study-arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <a class="study" data-reveal href="https://github.com/Curtis736/taskboard-gitops" target="_blank" rel="noopener noreferrer">
+            <p class="study-tag">GitOps</p>
+            <div class="study-metric">
+              <p class="micro-label">Applications Argo CD</p>
+              <p class="metric">2</p>
+            </div>
+            <h3>TaskBoard GitOps</h3>
+            <p class="study-desc">
+              Ne plus déployer à la main, même en local. Argo CD synchronise le cluster depuis
+              Git : l’état voulu vit dans le dépôt, pas dans mon historique de commandes.
+            </p>
+            <ul class="chips">
+              <li>Argo CD</li>
+              <li>GitOps</li>
+              <li>Kubernetes</li>
+            </ul>
+            <span class="study-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <ul class="repo-list">
+          <li>
+            <a href="https://github.com/Curtis736/taskboard-observability" target="_blank" rel="noopener noreferrer">
+              <span class="repo-name">TaskBoard Observabilité</span>
+              <span class="repo-desc">Prometheus et Grafana provisionnés par manifests</span>
+              <span class="repo-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Curtis736/taskboard-api" target="_blank" rel="noopener noreferrer">
+              <span class="repo-name">TaskBoard API</span>
+              <span class="repo-desc">FastAPI, 7 tests, image non-root, analyse Trivy</span>
+              <span class="repo-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Curtis736/taskboard-finops" target="_blank" rel="noopener noreferrer">
+              <span class="repo-name">TaskBoard FinOps</span>
+              <span class="repo-desc">Budgets, étiquettes de coût, détection d’anomalies</span>
+              <span class="repo-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Curtis736/taskboard-performance" target="_blank" rel="noopener noreferrer">
+              <span class="repo-name">TaskBoard Performance</span>
+              <span class="repo-desc">Politiques de cache, autoscaling, scénario k6</span>
+              <span class="repo-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Curtis736/taskboard-terraform-modules" target="_blank" rel="noopener noreferrer">
+              <span class="repo-name">Modules Terraform</span>
+              <span class="repo-desc">Briques réutilisables, étiquettes communes, OIDC</span>
+              <span class="repo-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Curtis736/taskboard-actions" target="_blank" rel="noopener noreferrer">
+              <span class="repo-name">TaskBoard Actions</span>
+              <span class="repo-desc">Workflows d’intégration réutilisables</span>
+              <span class="repo-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Curtis736/s3-static-site" target="_blank" rel="noopener noreferrer">
+              <span class="repo-name">S3 Static Site</span>
+              <span class="repo-desc">Bucket privé, CloudFront OAC, Terraform</span>
+              <span class="repo-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="marquee-band" aria-hidden="true">
+        <div class="marquee">
+          <div class="marquee-track">
+            <span>AWS</span><span>Terraform</span><span>Kubernetes</span><span>Docker</span><span>Argo CD</span><span>GitHub Actions</span><span>Prometheus</span><span>Grafana</span><span>Helm</span><span>Kustomize</span><span>kind</span><span>FastAPI</span><span>Python</span><span>Lambda</span><span>DynamoDB</span>
+            <span>AWS</span><span>Terraform</span><span>Kubernetes</span><span>Docker</span><span>Argo CD</span><span>GitHub Actions</span><span>Prometheus</span><span>Grafana</span><span>Helm</span><span>Kustomize</span><span>kind</span><span>FastAPI</span><span>Python</span><span>Lambda</span><span>DynamoDB</span>
+          </div>
+        </div>
+        <div class="marquee marquee-reverse">
+          <div class="marquee-track">
+            <span>EventBridge</span><span>SQS</span><span>ECS Fargate</span><span>CloudFront</span><span>S3</span><span>Cognito</span><span>IAM</span><span>VPC</span><span>ALB</span><span>ECR</span><span>Trivy</span><span>Checkov</span><span>kubeconform</span><span>k6</span><span>nginx</span>
+            <span>EventBridge</span><span>SQS</span><span>ECS Fargate</span><span>CloudFront</span><span>S3</span><span>Cognito</span><span>IAM</span><span>VPC</span><span>ALB</span><span>ECR</span><span>Trivy</span><span>Checkov</span><span>kubeconform</span><span>k6</span><span>nginx</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="parcours" class="band" aria-labelledby="parcours-title">
+        <header class="band-head">
+          <div>
+            <p class="micro-label micro-accent">Parcours 03</p>
+            <h2 id="parcours-title" class="micro-title">Expérience &amp; formation</h2>
+          </div>
+        </header>
+
+        <ol class="timeline">
+          <li data-reveal>
+            <span class="timeline-year">Expérience</span>
+            <div>
+              <h3>Sedi ATI</h3>
+              <p>DevOps</p>
+            </div>
+          </li>
+          <li data-reveal>
+            <span class="timeline-year">Expérience</span>
+            <div>
+              <h3>RentSafe</h3>
+              <p>DevOps</p>
+            </div>
+          </li>
+          <li data-reveal>
+            <span class="timeline-year">Formation</span>
+            <div>
+              <h3>Epitech</h3>
+              <p>Diplômé</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="certs">
+          <p class="micro-label">Certifications</p>
+          <ul class="chips chips-lg">
+            <li>AWS</li>
+            <li>Terraform</li>
+            <li>Kubernetes</li>
+          </ul>
+          <p class="certs-note">Intitulés complets, dates et références disponibles sur demande.</p>
+        </div>
+      </section>
+
+      <section id="apropos" class="band band-raised" aria-labelledby="apropos-title">
+        <header class="band-head">
+          <p class="micro-label">À propos</p>
+        </header>
+        <div class="about">
+          <h2 id="apropos-title">
+            Diplômé d’Epitech, je suis devenu ingénieur DevOps parce que
+            <em>l’exploitation m’intéresse autant que le code.</em>
+          </h2>
+          <div class="about-copy">
+            <p>
+              J’ai travaillé sur des sujets DevOps chez Sedi ATI et RentSafe, et je suis
+              certifié sur AWS, Terraform et Kubernetes. En parallèle, je construis des
+              environnements complets sur mon temps libre : c’est la façon la plus honnête que
+              j’ai trouvée pour vérifier que je comprends vraiment ce que j’utilise.
+            </p>
+            <p>
+              Ce qui m’intéresse le plus aujourd’hui, c’est la chaîne complète : décrire une
+              plateforme en code, la livrer automatiquement, la surveiller, et savoir combien
+              elle coûte. Les quatre à la fois, pas l’un sans les autres.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="cta" aria-labelledby="cta-title">
+        <p class="micro-label micro-accent">Contact</p>
+        <h2 id="cta-title">Parlons infrastructure, livraison et coûts.</h2>
+        <p class="cta-lead">
+          Mon activité technique est publique : le code, les pipelines et les décisions
+          d’architecture se lisent directement dans chaque dépôt.
+        </p>
+        <div class="cta-actions">
+          <a class="btn btn-solid" href="https://github.com/Curtis736" target="_blank" rel="me noopener noreferrer">
+            github.com/Curtis736 <span aria-hidden="true">↗</span>
+          </a>
+          <div class="optional-links" data-optional-links></div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="colophon">
-        <p class="label">Colophon</p>
-        <p>
-          Site écrit à la main en HTML et CSS, sans framework ni dépendance côté navigateur.
-          Composé en Iowan Old Style, libellés en Helvetica. Vérifié par html-validate,
-          Stylelint et ESLint, puis publié en statique par GitHub Actions à chaque commit.
-        </p>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="logo logo-static">CR<span aria-hidden="true">.</span></p>
+          <p>Ingénieur DevOps &amp; Cloud. Diplômé Epitech, certifié AWS, Terraform et Kubernetes.</p>
+        </div>
+
+        <nav class="footer-col" aria-label="Projets">
+          <h2>Projets</h2>
+          <ul>
+            <li><a href="https://github.com/Curtis736/aws-order-processing-lab" target="_blank" rel="noopener noreferrer">AWS Order Processing Lab</a></li>
+            <li><a href="https://github.com/Curtis736/hop-url" target="_blank" rel="noopener noreferrer">Hop URL</a></li>
+            <li><a href="https://github.com/Curtis736/taskboard-k8s" target="_blank" rel="noopener noreferrer">TaskBoard Kubernetes</a></li>
+            <li><a href="https://github.com/Curtis736/aws-ecs-terraform" target="_blank" rel="noopener noreferrer">TaskBoard sur AWS</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Sections du site">
+          <h2>Sections</h2>
+          <ul>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#parcours">Parcours</a></li>
+            <li><a href="#apropos">À propos</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-col">
+          <h2>Ce site</h2>
+          <p class="footer-note">
+            Écrit à la main en HTML, CSS et JavaScript, sans framework. Polices hébergées
+            localement, aucune requête vers un tiers. Vérifié par html-validate, Stylelint et
+            ESLint, puis publié par GitHub Actions à chaque commit.
+          </p>
+        </div>
       </div>
-      <a class="back-top" href="#ouverture">Haut de page <span aria-hidden="true">↑</span></a>
+
+      <div class="footer-end">
+        <p>© 2026 Curtis Robert</p>
+        <a class="text-arrow" href="#accueil">Haut de page <span aria-hidden="true">↑</span></a>
+      </div>
     </footer>
   </body>
 </html>
