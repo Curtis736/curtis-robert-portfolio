@@ -16,6 +16,8 @@
     <meta name="twitter:card" content="summary">
     <title>Curtis Robert — Ingénieur DevOps &amp; Cloud</title>
     <link rel="canonical" href="https://curtis736.github.io/curtis-robert-portfolio/">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/favicon.svg">
     <link rel="preload" href="assets/fonts/geist-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/geist-mono-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -41,8 +43,24 @@
     <a class="skip-link" href="#contenu">Aller au contenu</a>
     <div class="progress" data-progress aria-hidden="true"></div>
 
+    <!-- Monogramme : le C est un anneau ouvert vers le haut à droite, le R est
+         posé par-dessus et sa jambe ressort en traversant le trait du C. Le
+         croisement est perpendiculaire, seul endroit où les deux lettres se
+         superposent. -->
+    <svg class="svg-defs" aria-hidden="true" focusable="false">
+      <symbol id="monogram-cr" viewBox="2 2 60 60">
+        <g fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M55.77 28.66A24 24 0 1 1 40.99 9.75" stroke="currentColor"></path>
+          <path d="M24 46V18a10 7 0 0 1 0 14l31 19" stroke="#f9233a"></path>
+        </g>
+      </symbol>
+    </svg>
+
     <header class="topbar">
-      <a class="logo" href="#accueil" aria-label="Curtis Robert — retour en haut">CR<span aria-hidden="true">.</span></a>
+      <a class="logo" href="#accueil">
+        <svg class="logo-mark" viewBox="0 0 60 60" aria-hidden="true" focusable="false"><use href="#monogram-cr"></use></svg>
+        <span class="sr-only">Curtis Robert — retour en haut de page</span>
+      </a>
 
       <nav id="navigation" class="nav" aria-label="Navigation principale">
         <a href="#competences">Compétences</a>
@@ -476,7 +494,7 @@
     <footer class="site-footer">
       <div class="footer-grid">
         <div class="footer-brand">
-          <p class="logo logo-static">CR<span aria-hidden="true">.</span></p>
+          <svg class="logo-mark logo-mark-lg" viewBox="0 0 60 60" aria-hidden="true" focusable="false"><use href="#monogram-cr"></use></svg>
           <p>Ingénieur DevOps &amp; Cloud. Diplômé Epitech, certifié AWS, Terraform et Kubernetes.</p>
         </div>
 
