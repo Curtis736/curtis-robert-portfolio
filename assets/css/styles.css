@@ -941,25 +941,21 @@ h1 {
   border-block-start: 1px solid var(--border);
 }
 
-.cert-marquee {
-  margin-block-start: 1.75rem;
-}
-
-.cert-track {
+.cert-row {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 2.5rem;
-  animation-duration: 42s;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  margin-block-start: 1.75rem;
+  padding: 0;
+  list-style: none;
 }
 
 .cert-badge {
-  flex: none;
+  display: block;
   height: 5.25rem;
   width: auto;
   border-radius: 0.3rem;
-}
-
-.cert-badge-wide {
-  height: 5.25rem;
 }
 
 /* À propos */
@@ -1200,8 +1196,7 @@ h1 {
     scroll-behavior: auto;
   }
 
-  .marquee-track,
-  .cert-track {
+  .marquee-track {
     animation: none;
   }
 
