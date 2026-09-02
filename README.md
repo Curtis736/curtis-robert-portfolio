@@ -73,8 +73,7 @@ en-têtes HTTP de sécurité et utilise un utilisateur non privilégié.
 - Les titres exacts des certifications et les dates d'expérience doivent être
   ajoutés seulement après vérification.
 
-`Resilio Orders` est affiché comme projet local, sans lien, tant que le dépôt
-GitHub n'est pas public.
+Le projet `AWS Order Processing Lab` renvoie vers son dépôt GitHub public.
 
 ## Architecture AWS
 
