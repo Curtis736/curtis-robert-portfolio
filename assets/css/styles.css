@@ -941,79 +941,62 @@ h1 {
   border-block-start: 1px solid var(--border);
 }
 
-.cert-grid {
-  display: grid;
-  gap: 1px;
-  margin-block-start: 1.5rem;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
+.cert-marquee {
+  margin-block-start: 1.75rem;
 }
 
-@media (width >= 60rem) {
-  .cert-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-.cert {
+.cert-track {
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  padding: 1.75rem 1.5rem;
-  background: var(--bg);
-}
-
-.cert-head {
-  display: flex;
+  flex-shrink: 0;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-block-end: 0.5rem;
+  gap: 3rem;
+  padding-inline-end: 3rem;
+  white-space: nowrap;
+  animation: cert-scroll 38s linear infinite;
 }
 
-.cert-mark {
+.cert-item {
+  display: flex;
   flex: none;
-  width: 2.25rem;
-  height: 2.25rem;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.cert-item-mark {
+  flex: none;
+  width: 1.85rem;
+  height: 1.85rem;
   color: var(--fg);
 }
 
-.cert-progress .cert-mark {
-  color: var(--fg-dim);
+.cert-item-name {
+  font-size: 0.98rem;
+  color: var(--fg);
 }
 
-.cert-state {
+.cert-item-code {
   font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
-}
-
-.cert-state-progress {
   color: var(--fg-dim);
 }
 
-.cert h3 {
-  font-size: 1.02rem;
-  font-weight: 500;
-  line-height: 1.35;
-  letter-spacing: -0.01em;
-}
-
-.cert-code {
-  font-family: var(--mono);
-  font-size: 0.78rem;
+.cert-item-progress .cert-item-mark,
+.cert-item-progress .cert-item-name {
   color: var(--fg-muted);
 }
 
-.cert-desc {
-  margin-block-start: 0.35rem;
-  font-size: 0.9rem;
-  line-height: 1.65;
-  color: var(--fg-muted);
+/* La piste contient trois copies identiques : la faire glisser d'un tiers
+   ramène au point de départ sans saut visible. */
+@keyframes cert-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-33.333%);
+  }
 }
 
 /* À propos */
@@ -1254,7 +1237,8 @@ h1 {
     scroll-behavior: auto;
   }
 
-  .marquee-track {
+  .marquee-track,
+  .cert-track {
     animation: none;
   }
 

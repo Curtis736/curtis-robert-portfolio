@@ -62,10 +62,10 @@
           d="M1.8 5C3.5 18 14 23 19.8 13.5"
           fill="none"
           stroke="currentColor"
-          stroke-width="2.4"
+          stroke-width="3.1"
           stroke-linecap="round"
         ></path>
-        <path d="M21.47 10.77 21.51 14.54 18.09 12.46z" fill="currentColor"></path>
+        <path d="M22.09 9.75 22.1 14.91 17.5 12.09z" fill="currentColor"></path>
       </symbol>
 
       <!-- Terraform : quatre parallélogrammes isométriques formant un T. -->
@@ -94,6 +94,21 @@
           <path d="m11.03 14.99-1.47 3.7"></path>
           <path d="m9.04 13.54-3.75 0.86"></path>
           <path d="m9.38 10.09-3.4-1.68"></path>
+        </g>
+      </symbol>
+
+      <!-- Clever Cloud : le symbole seul de leur logo monochrome officiel,
+           sans le texte qui l'accompagne. -->
+      <symbol id="mark-clevercloud" viewBox="0 0 101 112">
+        <g fill="currentColor">
+          <polygon points="2.114 26.17 17.048 52.036 46.913 .305"></polygon>
+          <polygon points="14.738 56.037 .382 31.171 .382 80.904"></polygon>
+          <polygon points="20.511 58.035 50.379 109.769 80.247 58.035"></polygon>
+          <polygon points="80.245 54.035 50.379 2.303 20.513 54.035"></polygon>
+          <polygon points="86.02 56.037 100.376 80.904 100.376 31.171"></polygon>
+          <polygon points="98.644 85.904 83.71 60.038 53.843 111.77 100.38 84.905"></polygon>
+          <polygon points="83.71 52.036 98.644 26.17 100.379 27.172 53.843 .302"></polygon>
+          <polygon points="17.048 60.038 2.114 85.904 .382 84.904 46.915 111.77"></polygon>
         </g>
       </symbol>
     </svg>
@@ -602,56 +617,104 @@
 
         <div class="certs">
           <p class="micro-label">Certifications</p>
-          <ul class="cert-grid">
-            <li class="cert" data-reveal>
-              <div class="cert-head">
-                <svg class="cert-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+
+          <ul class="sr-only">
+            <li>AWS Certified Solutions Architect – Associate (SAA-C03), obtenue.</li>
+            <li>HashiCorp Certified: Terraform Associate (003), obtenue.</li>
+            <li>Clever Cloud « Cloud Concepts 101 », obtenue.</li>
+            <li>Certified Kubernetes Administrator (CKA), en préparation.</li>
+          </ul>
+
+          <div class="marquee cert-marquee" aria-hidden="true">
+            <div class="cert-track">
+              <div class="cert-item">
+                <svg class="cert-item-mark" viewBox="0 0 24 24" focusable="false">
                   <use href="#mark-aws"></use>
                 </svg>
-                <p class="cert-state">Obtenue</p>
+                <span class="cert-item-name">AWS Solutions Architect Associate</span>
+                <span class="cert-item-code">SAA-C03</span>
               </div>
-              <h3>AWS Certified Solutions Architect – Associate</h3>
-              <p class="cert-code">SAA-C03</p>
-              <p class="cert-desc">
-                Concevoir sur AWS des architectures sécurisées, résilientes, performantes et
-                optimisées en coût — les quatre domaines de l’examen. Je l’ai préparée en
-                construisant le projet de traitement de commandes serverless présenté plus
-                haut, plutôt qu’en révisant des questions.
-              </p>
-            </li>
-
-            <li class="cert" data-reveal>
-              <div class="cert-head">
-                <svg class="cert-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <div class="cert-item">
+                <svg class="cert-item-mark" viewBox="0 0 24 24" focusable="false">
                   <use href="#mark-terraform"></use>
                 </svg>
-                <p class="cert-state">Obtenue</p>
+                <span class="cert-item-name">HashiCorp Terraform Associate</span>
+                <span class="cert-item-code">003</span>
               </div>
-              <h3>HashiCorp Certified: Terraform Associate</h3>
-              <p class="cert-code">003</p>
-              <p class="cert-desc">
-                Décrire une infrastructure en code et en maîtriser le cycle de vie : plan et
-                apply, état distant et verrouillage, modules réutilisables, variables et
-                sorties, importation de ressources existantes.
-              </p>
-            </li>
-
-            <li class="cert cert-progress" data-reveal>
-              <div class="cert-head">
-                <svg class="cert-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <div class="cert-item">
+                <svg class="cert-item-mark" viewBox="0 0 24 24" focusable="false">
+                  <use href="#mark-clevercloud"></use>
+                </svg>
+                <span class="cert-item-name">Cloud Concepts 101</span>
+                <span class="cert-item-code">Clever Cloud</span>
+              </div>
+              <div class="cert-item cert-item-progress">
+                <svg class="cert-item-mark" viewBox="0 0 24 24" focusable="false">
                   <use href="#mark-kubernetes"></use>
                 </svg>
-                <p class="cert-state cert-state-progress">En préparation</p>
+                <span class="cert-item-name">Certified Kubernetes Administrator</span>
+                <span class="cert-item-code">CKA — en préparation</span>
               </div>
-              <h3>Certified Kubernetes Administrator</h3>
-              <p class="cert-code">CKA</p>
-              <p class="cert-desc">
-                Administration d’un cluster en conditions réelles : installation et
-                configuration, ordonnancement des charges, services et réseau, stockage, et
-                surtout dépannage, qui pèse à lui seul le tiers de l’examen.
-              </p>
-            </li>
-          </ul>
+
+              <div class="cert-item">
+                <svg class="cert-item-mark" viewBox="0 0 24 24" focusable="false">
+                  <use href="#mark-aws"></use>
+                </svg>
+                <span class="cert-item-name">AWS Solutions Architect Associate</span>
+                <span class="cert-item-code">SAA-C03</span>
+              </div>
+              <div class="cert-item">
+                <svg class="cert-item-mark" viewBox="0 0 24 24" focusable="false">
+                  <use href="#mark-terraform"></use>
+                </svg>
+                <span class="cert-item-name">HashiCorp Terraform Associate</span>
+                <span class="cert-item-code">003</span>
+              </div>
+              <div class="cert-item">
+                <svg class="cert-item-mark" viewBox="0 0 24 24" focusable="false">
+                  <use href="#mark-clevercloud"></use>
+                </svg>
+                <span class="cert-item-name">Cloud Concepts 101</span>
+                <span class="cert-item-code">Clever Cloud</span>
+              </div>
+              <div class="cert-item cert-item-progress">
+                <svg class="cert-item-mark" viewBox="0 0 24 24" focusable="false">
+                  <use href="#mark-kubernetes"></use>
+                </svg>
+                <span class="cert-item-name">Certified Kubernetes Administrator</span>
+                <span class="cert-item-code">CKA — en préparation</span>
+              </div>
+
+              <div class="cert-item">
+                <svg class="cert-item-mark" viewBox="0 0 24 24" focusable="false">
+                  <use href="#mark-aws"></use>
+                </svg>
+                <span class="cert-item-name">AWS Solutions Architect Associate</span>
+                <span class="cert-item-code">SAA-C03</span>
+              </div>
+              <div class="cert-item">
+                <svg class="cert-item-mark" viewBox="0 0 24 24" focusable="false">
+                  <use href="#mark-terraform"></use>
+                </svg>
+                <span class="cert-item-name">HashiCorp Terraform Associate</span>
+                <span class="cert-item-code">003</span>
+              </div>
+              <div class="cert-item">
+                <svg class="cert-item-mark" viewBox="0 0 24 24" focusable="false">
+                  <use href="#mark-clevercloud"></use>
+                </svg>
+                <span class="cert-item-name">Cloud Concepts 101</span>
+                <span class="cert-item-code">Clever Cloud</span>
+              </div>
+              <div class="cert-item cert-item-progress">
+                <svg class="cert-item-mark" viewBox="0 0 24 24" focusable="false">
+                  <use href="#mark-kubernetes"></use>
+                </svg>
+                <span class="cert-item-name">Certified Kubernetes Administrator</span>
+                <span class="cert-item-code">CKA — en préparation</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -667,9 +730,10 @@
           <div class="about-copy">
             <p>
               J’ai travaillé sur des sujets DevOps chez Sedi ATI puis chez RentSafe. Je suis
-              certifié AWS Solutions Architect Associate et Terraform Associate, et je prépare
-              la CKA. Le reste du temps, je monte des environnements complets chez moi —
-              c’est là que je vois si j’ai compris un outil ou si je l’ai seulement recopié.
+              certifié AWS Solutions Architect Associate, Terraform Associate et Clever Cloud,
+              et je prépare la CKA. Le reste du temps, je monte des environnements complets
+              chez moi — c’est là que je vois si j’ai compris un outil ou si je l’ai seulement
+              recopié.
             </p>
             <p>
               Ce qui m’intéresse, c’est la chaîne entière : décrire une plateforme en code, la
@@ -704,7 +768,7 @@
           <svg class="logo-mark logo-mark-lg" viewBox="0 0 60 60" aria-hidden="true" focusable="false"><use href="#monogram-cr"></use></svg>
           <p>
             Ingénieur DevOps &amp; Cloud. Diplômé Epitech, certifié AWS Solutions Architect
-            Associate et Terraform Associate.
+            Associate, Terraform Associate et Clever Cloud.
           </p>
         </div>
 
