@@ -1,6 +1,8 @@
 (() => {
   "use strict";
 
+  document.documentElement.classList.add("js");
+
   const toggle = document.querySelector(".nav-toggle");
   const navigation = document.querySelector(".site-nav");
 
