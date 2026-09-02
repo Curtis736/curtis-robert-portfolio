@@ -113,8 +113,9 @@
     revealTargets.forEach((target) => observer.observe(target));
   }
 
-  /* Fond du héro : champ d'étoiles et globe filaire.
-     Dessiné à la main sur un canvas 2D, sans bibliothèque 3D. */
+  /* Fond du héro : champ d'étoiles et globe filaire, en canvas 2D natif.
+     Projection orthographique calculée ici plutôt qu'avec une bibliothèque 3D,
+     pour ne rien charger de plus au premier rendu. */
 
   const canvas = document.querySelector("[data-starfield]");
 

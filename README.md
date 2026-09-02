@@ -22,15 +22,16 @@ Le site est bâti autour d'une idée simple : chaque projet est présenté comme
 - **Chiffres réels** : les valeurs affichées sont comptées dans les dépôts
   (ressources Terraform, objets Kubernetes, services AWS, durée de CI), pas
   estimées. Les projets personnels sont explicitement présentés comme tels.
-- **Fond animé** : champ d'étoiles et globe filaire dessinés à la main sur un
-  canvas 2D, sans bibliothèque 3D. La boucle s'arrête dès que le héro quitte
-  l'écran, et un seul rendu statique est produit si le visiteur a demandé à
-  réduire les animations.
+- **Fond animé** : champ d'étoiles et globe filaire en canvas 2D natif, sans
+  bibliothèque 3D à charger. La boucle s'arrête dès que le héro quitte l'écran,
+  et un seul rendu statique est produit si le visiteur a demandé à réduire les
+  animations.
 - **Grille** : bloc de composition de 68 rem centré, bandes séparées par des
   filets à un pixel, alternance de fonds pour marquer les sections.
 
-Tout tient dans un fichier HTML, une feuille de style et un script, sans
-framework ni étape de compilation.
+Tout tient dans un fichier HTML, une feuille de style et un script : pas de
+framework, donc pas d'étape de compilation à maintenir. Les contrôles et la
+publication sont entièrement pris en charge par GitHub Actions.
 
 ## Structure
 
