@@ -4,6 +4,8 @@ CV en ligne statique, en français, réalisé en HTML, CSS et JavaScript sans
 framework. Le site présente le parcours, les compétences et une sélection de
 projets DevOps et Cloud de Curtis Robert.
 
+**Site public :** <https://curtis736.github.io/curtis-robert-portfolio/>
+
 ## Structure
 
 ```text
@@ -36,6 +38,17 @@ Avec les dépendances de contrôle :
 npm ci
 npm run check
 ```
+
+## Publication gratuite
+
+Le workflow `GitHub Pages` publie automatiquement `index.html` et `assets/`
+après chaque push sur `main`. L'hébergement, le sous-domaine GitHub et HTTPS
+sont gratuits pour ce dépôt public :
+
+<https://curtis736.github.io/curtis-robert-portfolio/>
+
+Le déploiement AWS reste disponible comme exercice d'infrastructure, mais il
+n'est pas nécessaire pour mettre le CV en ligne.
 
 ## Lancer avec Docker
 
