@@ -1,0 +1,9 @@
+framework:
+  - terraform
+compact: true
+quiet: true
+# Exceptions adaptées à un site personnel statique et à faible trafic :
+# - pas de WAF, logs, réplication, failover ou géoblocage sans besoin établi ;
+# - SSE-S3 sans frais KMS ;
+# - certificat CloudFront par défaut tant que le domaine reste désactivé.
+skip-check: CKV_AWS_86,CKV_AWS_18,CKV2_AWS_62,CKV2_AWS_47,CKV_AWS_145,CKV_AWS_174,CKV_AWS_68,CKV_AWS_310,CKV_AWS_374,CKV2_AWS_42,CKV_AWS_144

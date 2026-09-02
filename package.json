@@ -1,0 +1,18 @@
+{
+  "name": "curtis-robert-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site CV statique de Curtis Robert",
+  "scripts": {
+    "check": "npm run check:html && npm run check:css && npm run check:js",
+    "check:html": "html-validate index.html",
+    "check:css": "stylelint \"assets/css/**/*.css\"",
+    "check:js": "eslint \"assets/js/**/*.js\""
+  },
+  "devDependencies": {
+    "eslint": "^10.9.1",
+    "html-validate": "^11.4.0",
+    "stylelint": "^17.14.1",
+    "stylelint-config-standard": "^40.0.0"
+  }
+}

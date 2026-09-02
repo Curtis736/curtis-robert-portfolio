@@ -1,0 +1,94 @@
+name: AWS manual
+
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: "Action Terraform"
+        required: true
+        default: plan
+        type: choice
+        options:
+          - plan
+          - apply
+      confirmation:
+        description: "Pour apply, saisir DEPLOY"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  configuration:
+    runs-on: ubuntu-latest
+    outputs:
+      ready: ${{ steps.check.outputs.ready }}
+    steps:
+      - id: check
+        env:
+          ROLE_ARN: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          STATE_BUCKET: ${{ vars.TF_STATE_BUCKET }}
+        run: |
+          if [[ -n "$ROLE_ARN" && -n "$STATE_BUCKET" ]]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Déploiement ignoré : AWS_DEPLOY_ROLE_ARN ou TF_STATE_BUCKET absent."
+          fi
+
+  deploy:
+    needs: configuration
+    if: >-
+      needs.configuration.outputs.ready == 'true' &&
+      (inputs.operation == 'plan' || inputs.confirmation == 'DEPLOY')
+    runs-on: ubuntu-latest
+    environment: aws-portfolio
+    steps:
+      - uses: actions/checkout@v5
+      - uses: aws-actions/configure-aws-credentials@v5
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION || 'eu-west-3' }}
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.13.1"
+      - name: Initialize remote state
+        working-directory: terraform
+        env:
+          STATE_BUCKET: ${{ vars.TF_STATE_BUCKET }}
+          STATE_REGION: ${{ vars.AWS_REGION || 'eu-west-3' }}
+        run: >-
+          terraform init
+          -backend-config="bucket=$STATE_BUCKET"
+          -backend-config="key=curtis-portfolio/terraform.tfstate"
+          -backend-config="region=$STATE_REGION"
+          -backend-config="encrypt=true"
+          -backend-config="use_lockfile=true"
+      - name: Plan
+        working-directory: terraform
+        run: terraform plan -out=portfolio.tfplan
+      - name: Apply
+        if: inputs.operation == 'apply'
+        working-directory: terraform
+        run: terraform apply -auto-approve portfolio.tfplan
+      - name: Read Terraform outputs
+        if: inputs.operation == 'apply'
+        id: outputs
+        working-directory: terraform
+        run: |
+          echo "bucket=$(terraform output -raw bucket_name)" >> "$GITHUB_OUTPUT"
+          echo "distribution=$(terraform output -raw cloudfront_distribution_id)" >> "$GITHUB_OUTPUT"
+      - name: Publish static files
+        if: inputs.operation == 'apply'
+        env:
+          BUCKET_NAME: ${{ steps.outputs.outputs.bucket }}
+          DISTRIBUTION_ID: ${{ steps.outputs.outputs.distribution }}
+        run: |
+          aws s3 cp index.html "s3://$BUCKET_NAME/index.html" \
+            --cache-control "no-cache" --content-type "text/html"
+          aws s3 sync assets "s3://$BUCKET_NAME/assets" \
+            --delete --cache-control "public,max-age=604800,immutable"
+          aws cloudfront create-invalidation \
+            --distribution-id "$DISTRIBUTION_ID" --paths "/*"

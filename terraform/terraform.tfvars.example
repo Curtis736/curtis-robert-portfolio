@@ -1,0 +1,8 @@
+aws_region   = "eu-west-3"
+project_name = "curtis-portfolio"
+price_class  = "PriceClass_100"
+
+# Domaine personnalisé désactivé par défaut.
+enable_custom_domain = false
+domain_name          = ""
+acm_certificate_arn  = ""
