@@ -6,6 +6,28 @@ projets DevOps et Cloud de Curtis Robert.
 
 **Site public :** <https://curtis736.github.io/curtis-robert-portfolio/>
 
+## Direction visuelle
+
+Le site est composé comme un dossier de travaux imprimé plutôt que comme une
+page d'accueil de produit.
+
+- **Papier et encre** : fond ivoire `#f1ece1`, encre chaude `#1b1813`, un seul
+  accent rouge d'imprimerie `#a13a24`. Un grain léger en surimpression.
+- **Typographie** : texte courant en serif (`Iowan Old Style`, repli Palatino
+  puis Georgia), libellés en Helvetica capitalisée. Aucune police distante,
+  donc aucune requête vers un tiers.
+- **Codes d'imprimé** : sommaire à points de conduite, numéros de feuillet en
+  marge, lettrine, notes en marge, registre à filets, colophon final.
+- **Planche technique** : le chemin d'une commande dans
+  `aws-order-processing-lab` est dessiné en SVG à la main, aux mêmes filets que
+  le reste de la page.
+- **Grille** : bloc de composition de 76 rem centré, colonne de texte limitée à
+  34 rem, marge de notes à droite. La mise en page est volontairement
+  asymétrique.
+
+Tout tient dans un fichier HTML et une feuille de style ; le JavaScript ne sert
+qu'au menu mobile et aux liens optionnels.
+
 ## Structure
 
 ```text
