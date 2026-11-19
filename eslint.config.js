@@ -1,15 +1,26 @@
 module.exports = [
   {
+    ignores: ["assets/vendor/**"]
+  },
+  {
     files: ["assets/js/**/*.js"],
     languageOptions: {
       ecmaVersion: 2022,
-      sourceType: "script",
+      sourceType: "module",
       globals: {
         document: "readonly",
-        window: "readonly"
-      },
-      parserOptions: {
-        ecmaVersion: 2022
+        window: "readonly",
+        location: "readonly",
+        navigator: "readonly",
+        performance: "readonly",
+        sessionStorage: "readonly",
+        matchMedia: "readonly",
+        requestAnimationFrame: "readonly",
+        setTimeout: "readonly",
+        addEventListener: "readonly",
+        innerWidth: "readonly",
+        innerHeight: "readonly",
+        devicePixelRatio: "readonly"
       }
     },
     rules: {

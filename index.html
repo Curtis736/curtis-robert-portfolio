@@ -1,735 +1,350 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#020204">
-    <meta name="description" content="Curtis Robert, ingénieur DevOps et Cloud. Projets AWS, Kubernetes, Terraform et livraison continue, avec les chiffres mesurés de chaque build.">
-    <meta name="author" content="Curtis Robert">
-    <meta property="og:type" content="profile">
-    <meta property="og:locale" content="fr_FR">
-    <meta property="og:title" content="Curtis Robert — Ingénieur DevOps &amp; Cloud">
-    <meta property="og:description" content="Projets AWS, Kubernetes, Terraform et livraison continue, avec les chiffres mesurés de chaque build.">
-    <meta property="og:url" content="https://curtis736.github.io/curtis-robert-portfolio/">
-    <meta property="profile:first_name" content="Curtis">
-    <meta property="profile:last_name" content="Robert">
-    <meta name="twitter:card" content="summary">
-    <title>Curtis Robert — Ingénieur DevOps &amp; Cloud</title>
-    <link rel="canonical" href="https://curtis736.github.io/curtis-robert-portfolio/">
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="apple-touch-icon" href="assets/favicon.svg">
-    <link rel="preload" href="assets/fonts/geist-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="assets/fonts/geist-mono-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Curtis Robert",
-        "jobTitle": "Ingénieur DevOps & Cloud",
-        "url": "https://curtis736.github.io/curtis-robert-portfolio/",
-        "sameAs": ["https://github.com/Curtis736"],
-        "alumniOf": {
-          "@type": "EducationalOrganization",
-          "name": "Epitech"
-        },
-        "knowsAbout": ["DevOps", "Cloud", "AWS", "Terraform", "Kubernetes", "Docker", "Argo CD"]
-      }
-    </script>
-    <script src="assets/js/site.config.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
-  </head>
-  <body>
-    <a class="skip-link" href="#contenu">Aller au contenu</a>
-    <div class="progress" data-progress aria-hidden="true"></div>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curtis Robert — Homelab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="description" content="Curtis Robert, ingénieur DevOps & Cloud : portfolio interactif en 3D (projets, compétences, parcours, certifications).">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Monogramme : le C est un anneau ouvert vers le haut à droite, le R est
-         posé par-dessus et sa jambe ressort en traversant le trait du C. Le
-         croisement est perpendiculaire, seul endroit où les deux lettres se
-         superposent. -->
-    <svg class="svg-defs" aria-hidden="true" focusable="false">
-      <symbol id="monogram-cr" viewBox="2 2 60 60">
-        <g fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M55.77 28.66A24 24 0 1 1 40.99 9.75" stroke="currentColor"></path>
-          <path d="M24 46V18a10 7 0 0 1 0 14l31 19" stroke="#f9233a"></path>
-        </g>
-      </symbol>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
 
-    </svg>
+<div id="boot"><pre id="bootText" aria-hidden="true"></pre><button type="button" id="skip">passer ↵</button></div>
 
-    <header class="topbar">
-      <a class="logo" href="#accueil">
-        <svg class="logo-mark" viewBox="0 0 60 60" aria-hidden="true" focusable="false"><use href="#monogram-cr"></use></svg>
-        <span class="sr-only">Curtis Robert — retour en haut de page</span>
-      </a>
+<header id="hud">
+  <div class="id"><b>Curtis Robert</b><span>Ingénieur DevOps &amp; Cloud · <i>homelab</i></span></div>
+  <nav class="top-links" aria-label="Liens">
+    <a class="gh" href="https://github.com/Curtis736" target="_blank" rel="noopener">github ↗</a>
+    <a href="#contact" data-open="contact">contact</a>
+  </nav>
+</header>
 
-      <nav id="navigation" class="nav" aria-label="Navigation principale">
-        <a href="#competences">Compétences</a>
-        <a href="#projets">Projets</a>
-        <a href="#parcours">Parcours</a>
-        <a href="#apropos">À propos</a>
-      </nav>
+<canvas id="scene" aria-hidden="true"></canvas>
+<p id="nogl" hidden>La 3D n'est pas disponible ici.<br>Le menu en bas à gauche donne accès à tout le contenu.</p>
+<div id="tip" aria-hidden="true"></div>
+<p id="cta" aria-hidden="true">clique sur un <em>objet</em> du bureau</p>
 
-      <div class="topbar-end">
-        <p class="status"><span class="status-dot" aria-hidden="true"></span> AWS SAA-C03 · Terraform Associate</p>
-        <a class="btn btn-solid btn-sm" href="https://github.com/Curtis736" rel="me noopener noreferrer" target="_blank">GitHub</a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navigation">
-          <span class="sr-only">Ouvrir le menu</span>
-          <span class="nav-toggle-bars" aria-hidden="true"></span>
-        </button>
-      </div>
-    </header>
+<nav id="menu" aria-label="Sections">
+  <span class="prompt">~$ ls</span>
+  <ul>
+    <li><button type="button" data-open="projets">projets</button></li>
+    <li><button type="button" data-open="stack">compétences</button></li>
+    <li><button type="button" data-open="parcours">parcours</button></li>
+    <li><button type="button" data-open="certifs">certifs</button></li>
+    <li><button type="button" data-open="apropos">à-propos</button></li>
+    <li><button type="button" data-open="contact">contact</button></li>
+  </ul>
+</nav>
 
-    <main id="contenu">
-      <section id="accueil" class="hero" aria-labelledby="hero-title">
-        <canvas class="hero-canvas" data-starfield aria-hidden="true"></canvas>
-        <div class="hero-inner">
-          <p class="kicker">Ingénieur DevOps &amp; Cloud — Diplômé Epitech</p>
-          <h1 id="hero-title">Bonjour, je suis <span class="nowrap">Curtis Robert.</span></h1>
-          <p class="hero-lead">
-            Je construis des infrastructures cloud, des chaînes de déploiement et des
-            environnements que je casse volontairement pour comprendre comment ils tiennent.
-            Chaque projet ci-dessous est un dépôt public, avec sa CI, sa documentation et ses
-            chiffres mesurés.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-solid" href="#projets">Voir les projets</a>
-            <a class="btn btn-ghost" href="https://github.com/Curtis736" rel="me noopener noreferrer" target="_blank">
-              github.com/Curtis736 <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </div>
-      </section>
+<div id="shade"></div>
 
-      <section class="band band-tech" aria-label="Technologies utilisées au quotidien">
-        <p class="micro-label">Technologies que j’utilise au quotidien</p>
-        <ul class="tech-row">
-          <li>AWS</li>
-          <li>Terraform</li>
-          <li>Kubernetes</li>
-          <li>Docker</li>
-          <li>Argo CD</li>
-          <li>GitHub Actions</li>
-          <li>Prometheus</li>
-          <li>Grafana</li>
-          <li>Helm</li>
-          <li>Python</li>
-        </ul>
-      </section>
+<!-- ============ PROJETS ============ -->
+<section class="drawer" id="d-projets" role="dialog" aria-modal="true" aria-labelledby="h-projets" inert>
+  <header><span class="path">~/moniteur/<em>projets</em></span><button class="close" type="button">esc · fermer</button></header>
+  <h2 id="h-projets" tabindex="-1"><small>git log --all</small>Ce qui tourne sur l'écran</h2>
+  <p class="lede">Des dépôts publics, chacun avec sa CI et sa doc. Les chiffres ci-dessous sont comptés dans le code, pas estimés.</p>
+  <div class="stats">
+    <div><b>18</b><span>dépôts publics</span></div>
+    <div><b>121</b><span>ressources Terraform</span></div>
+    <div><b>25</b><span>workflows CI</span></div>
+    <div><b>97</b><span>tests Python</span></div>
+  </div>
+  <p class="note">// comptage sur github.com/Curtis736, novembre 2026</p>
 
-      <section class="band band-stats" aria-label="Chiffres du portfolio">
-        <dl class="stats">
-          <div class="stat" data-reveal>
-            <dt><span class="stat-value" data-count="13">13</span></dt>
-            <dd>Dépôts publics</dd>
-          </div>
-          <div class="stat" data-reveal>
-            <dt><span class="stat-value" data-count="121">121</span></dt>
-            <dd>Ressources Terraform décrites</dd>
-          </div>
-          <div class="stat" data-reveal>
-            <dt><span class="stat-value" data-count="18">18</span></dt>
-            <dd>Workflows d’intégration continue</dd>
-          </div>
-          <div class="stat" data-reveal>
-            <dt><span class="stat-value" data-count="12">12</span></dt>
-            <dd>Services AWS mis en œuvre</dd>
-          </div>
-        </dl>
-        <p class="stats-note">
-          Chiffres comptés dans les dépôts, pas arrondis à la hausse. Le détail est vérifiable
-          fichier par fichier sur GitHub.
-        </p>
-      </section>
+  <h3>En production</h3>
+  <a class="card big" href="https://github.com/Curtis736/Tablette-FSOP" target="_blank" rel="noopener">
+    <div class="row"><h4>Tablette FSOP · SEDI-ATI</h4><span class="k">utilisée en atelier</span></div>
+    <p>Pointage des temps sur les lancements de production, fiches de traçabilité FSOP et remontée vers l'ERP SILOG. API Express, SPA servie par Nginx, SQL Server, Compose prod / test / supervision, analyse SonarQube.</p>
+    <div class="tags"><span>Node.js</span><span>Docker</span><span>Nginx</span><span>SQL Server</span><span>SonarQube</span></div>
+  </a>
 
-      <section id="competences" class="band" aria-labelledby="competences-title">
-        <header class="band-head">
-          <div>
-            <p class="micro-label micro-accent">Domaines 01</p>
-            <h2 id="competences-title" class="micro-title">Ce sur quoi je travaille</h2>
-          </div>
-          <a class="text-arrow" href="#projets">Voir les projets <span aria-hidden="true">↗</span></a>
-        </header>
+  <h3>Plateformes &amp; cloud</h3>
+  <a class="card" href="https://github.com/Curtis736/openyard" target="_blank" rel="noopener">
+    <div class="row"><h4>OpenYard</h4><span class="k">16 objets k8s</span></div>
+    <p>Un « open cloud » multi-tenant : un projet crée un namespace, des quotas et une clé API ; une image Docker devient Deployment, Service et Ingress. VM Ubuntu via Multipass, chart Helm, e2e sur kind, scan Trivy.</p>
+    <div class="tags"><span>Kubernetes</span><span>Helm</span><span>FastAPI</span><span>kind</span><span>Trivy</span></div>
+  </a>
+  <a class="card" href="https://github.com/Curtis736/aws-order-processing-lab" target="_blank" rel="noopener">
+    <div class="row"><h4>AWS Order Processing Lab</h4><span class="k">47 ressources TF</span></div>
+    <p>Commandes serverless : API Gateway → Lambda → DynamoDB, puis EventBridge et SQS vers un worker, avec file de rebut. CloudFront + OAC, Cognito, Checkov et scénarios de panne rejouables.</p>
+    <div class="tags"><span>Terraform</span><span>Lambda</span><span>DynamoDB</span><span>SQS</span><span>Cognito</span></div>
+  </a>
+  <a class="card" href="https://github.com/Curtis736/hop-url" target="_blank" rel="noopener">
+    <div class="row"><h4>Hop URL</h4><span class="k">CI de bout en bout</span></div>
+    <p>Un petit raccourcisseur d'URL industrialisé : tests, image non-root en lecture seule, Trivy, publication GHCR, Kustomize avec NetworkPolicy et métriques Prometheus.</p>
+    <div class="tags"><span>FastAPI</span><span>Docker</span><span>Kustomize</span><span>Prometheus</span></div>
+  </a>
 
-        <div class="cards">
-          <article class="card" data-reveal>
-            <span class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 2.5 21 7v10l-9 4.5L3 17V7z"></path><path d="M3 7l9 4.5L21 7"></path><path d="M12 11.5V21"></path></svg>
-            </span>
-            <h3>Plateformes Kubernetes</h3>
-            <p>
-              Manifests et charts pour des clusters locaux : overlays par environnement,
-              politiques réseau, probes, contraintes de sécurité et synchronisation Argo CD.
-            </p>
-            <span class="card-arrow" aria-hidden="true">↗</span>
-          </article>
+  <h3>Suite TaskBoard · une app, neuf dépôts</h3>
+  <p class="note mb12">La même API déployée de toutes les façons : Kubernetes, ECS, GitOps, avec sa facture et ses métriques.</p>
+  <div class="mini">
+    <a href="https://github.com/Curtis736/aws-ecs-terraform" target="_blank" rel="noopener"><b>aws-ecs-terraform</b><span>VPC 2 AZ, ALB, ECS Fargate, OIDC · 32 ressources</span></a>
+    <a href="https://github.com/Curtis736/taskboard-k8s" target="_blank" rel="noopener"><b>taskboard-k8s</b><span>Kustomize + Helm, HPA, PDB, pods durcis</span></a>
+    <a href="https://github.com/Curtis736/taskboard-gitops" target="_blank" rel="noopener"><b>taskboard-gitops</b><span>Argo CD synchronise le cluster depuis Git</span></a>
+    <a href="https://github.com/Curtis736/taskboard-observability" target="_blank" rel="noopener"><b>taskboard-observability</b><span>Prometheus + Grafana provisionnés</span></a>
+    <a href="https://github.com/Curtis736/taskboard-finops" target="_blank" rel="noopener"><b>taskboard-finops</b><span>Budgets, tags de coût, détection d'anomalies</span></a>
+    <a href="https://github.com/Curtis736/taskboard-performance" target="_blank" rel="noopener"><b>taskboard-performance</b><span>Cache CloudFront, autoscaling ECS, k6</span></a>
+    <a href="https://github.com/Curtis736/taskboard-api" target="_blank" rel="noopener"><b>taskboard-api</b><span>FastAPI, image non-root, Trivy, GHCR</span></a>
+    <a href="https://github.com/Curtis736/taskboard-actions" target="_blank" rel="noopener"><b>taskboard-actions</b><span>Workflows réutilisables (TF, kubeconform)</span></a>
+  </div>
 
-          <article class="card" data-reveal>
-            <span class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"></circle><circle cx="6" cy="18" r="2.5"></circle><circle cx="18" cy="12" r="2.5"></circle><path d="M6 8.5v7"></path><path d="M8.5 6h4a3 3 0 0 1 3 3v1"></path><path d="M8.5 18h4a3 3 0 0 0 3-3v-1"></path></svg>
-            </span>
-            <h3>Chaînes de livraison</h3>
-            <p>
-              Pipelines GitHub Actions qui vérifient, construisent, analysent et publient :
-              lint, tests, images non-root, analyse Trivy et fédération OIDC plutôt que des clés.
-            </p>
-            <span class="card-arrow" aria-hidden="true">↗</span>
-          </article>
+  <h3>Outillage métier</h3>
+  <div class="mini">
+    <a href="https://github.com/Curtis736/AUTO-RCI-SEDI" target="_blank" rel="noopener"><b>AUTO-RCI</b><span>Génère les fiches Word RCI / RE / PV depuis les mesures Excel</span></a>
+    <a href="https://github.com/Curtis736/comparateur-d-image-sedi" target="_blank" rel="noopener"><b>Vérificateur de PDF</b><span>Contrôle SN, programme attendu et échecs dans les rapports de test</span></a>
+  </div>
+</section>
 
-          <article class="card" data-reveal>
-            <span class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 16.5a4 4 0 0 1 1.4-7.7 5.5 5.5 0 0 1 10.6-1.6A4.25 4.25 0 0 1 20 16.5z"></path></svg>
-            </span>
-            <h3>Infrastructure AWS avec Terraform</h3>
-            <p>
-              Architectures serverless et conteneurisées décrites en code : état distant,
-              rôles au plus juste, analyse Checkov et coûts tenus sous contrôle.
-            </p>
-            <span class="card-arrow" aria-hidden="true">↗</span>
-          </article>
-        </div>
-      </section>
+<!-- ============ STACK ============ -->
+<section class="drawer" id="d-stack" role="dialog" aria-modal="true" aria-labelledby="h-stack" inert>
+  <header><span class="path">~/rack/<em>stack</em></span><button class="close" type="button">esc · fermer</button></header>
+  <h2 id="h-stack" tabindex="-1"><small>kubectl get nodes</small>Ce qu'il y a dans le rack</h2>
+  <p class="lede">Rangé par unité, comme dans une baie : chaque ligne est un outil que j'ai fait tourner, pas juste lu.</p>
+  <div class="skills">
+    <div class="unit"><div class="u">U1 · IaC <i></i></div><b>Infrastructure en code</b><div class="tags"><span>Terraform</span><span>Ansible</span><span>Checkov</span><span>Infracost</span></div></div>
+    <div class="unit"><div class="u">U2 · cloud <i></i></div><b>AWS</b><div class="tags"><span>ECS Fargate</span><span>Lambda</span><span>DynamoDB</span><span>SQS</span><span>CloudFront</span><span>IAM / OIDC</span></div></div>
+    <div class="unit"><div class="u">U3 · orchestration <i></i></div><b>Conteneurs</b><div class="tags"><span>Kubernetes</span><span>Helm</span><span>Kustomize</span><span>kind</span><span>Docker</span></div></div>
+    <div class="unit"><div class="u">U4 · livraison <i></i></div><b>CI/CD &amp; GitOps</b><div class="tags"><span>GitLab CI</span><span>GitHub Actions</span><span>Jenkins</span><span>Argo CD</span></div></div>
+    <div class="unit"><div class="u">U5 · supervision <i></i></div><b>Observabilité</b><div class="tags"><span>Prometheus</span><span>Grafana</span><span>Loki</span><span>CloudWatch</span></div></div>
+    <div class="unit"><div class="u">U6 · sécurité <i></i></div><b>Durcissement</b><div class="tags"><span>Trivy</span><span>SonarQube</span><span>least-privilege</span><span>NetworkPolicy</span></div></div>
+    <div class="unit"><div class="u">U7 · code <i></i></div><b>Langages</b><div class="tags"><span>Python</span><span>Bash</span><span>Node.js</span><span>SQL</span></div></div>
+    <div class="unit"><div class="u">U8 · systèmes <i></i></div><b>Exploitation</b><div class="tags"><span>Linux</span><span>Windows Server</span><span>Nginx</span><span>~50 serveurs gérés</span></div></div>
+  </div>
+</section>
 
-      <section class="band band-raised" aria-labelledby="methode-title">
-        <header class="band-head">
-          <p class="micro-label">Ma méthode</p>
-          <a class="text-arrow" href="#apropos">À propos <span aria-hidden="true">→</span></a>
-        </header>
-        <div class="statement">
-          <h2 id="methode-title">
-            Je construis des systèmes entiers, puis je les mets
-            <em>volontairement en difficulté.</em>
-          </h2>
-          <p>
-            Un tutoriel montre comment démarrer un cluster. Il ne montre presque jamais ce qui
-            se passe quand une file déborde, quand un rôle est trop permissif ou quand la
-            facture monte plus vite que le trafic. C’est là que j’apprends.
-          </p>
-          <ul class="bullets">
-            <li>Tout en code : aucune ressource créée à la main dans une console</li>
-            <li>Chaque dépôt a sa CI, sa documentation et ses limites écrites noir sur blanc</li>
-            <li>Des scénarios de panne rejouables plutôt que des captures d’écran</li>
-            <li>Environnements détruits après chaque exercice, coût vérifié</li>
-          </ul>
-        </div>
-      </section>
+<!-- ============ PARCOURS ============ -->
+<section class="drawer" id="d-parcours" role="dialog" aria-modal="true" aria-labelledby="h-parcours" inert>
+  <header><span class="path">~/tableau/<em>parcours</em></span><button class="close" type="button">esc · fermer</button></header>
+  <h2 id="h-parcours" tabindex="-1"><small>git log --oneline</small>Le tableau blanc</h2>
+  <p class="lede">Expériences en orange, formation en vert. Agile au quotidien : Scrum en sprints de deux semaines, et Kanban.</p>
+  <div class="timeline">
+    <div class="step work">
+      <p class="when">sept. 2025 → aujourd'hui</p>
+      <h4>SEDI-ATI <em>· Ingénieur DevOps</em></h4>
+      <ul>
+        <li>Mise en service et run de FSOP, l'appli de traçabilité de l'atelier, reliée à l'ERP SILOG</li>
+        <li>Terraform pour les hôtes (prod, test, CI, ERP) et inventaire Ansible généré automatiquement</li>
+        <li>Rôles Ansible Linux et Windows, dont <code>silog_ssh_runner</code> pour le serveur de l'ERP</li>
+        <li>Une cinquantaine de machines provisionnées dans des états préconfigurés, sécurité incluse</li>
+        <li>CI GitHub Actions répliquée vers GitLab CI + Jenkins, SonarQube, npm audit, prod verrouillée par runner dédié</li>
+        <li>Prometheus / Alertmanager / Grafana : 8 alertes vers Teams et e-mail, watchdog toutes les 10 min, runbooks</li>
+        <li>Outils Python pour la qualité : fiches RCI / RE / PV, contrôle des PDF de test, synchro FSOP → Excel</li>
+      </ul>
+    </div>
+    <div class="step work">
+      <p class="when">mars 2024 → août 2025</p>
+      <h4>Société Générale <em>· Ingénieur DevOps / Data</em></h4>
+      <ul>
+        <li>Gestion d'une vingtaine de machines, playbooks et rôles Ansible construits de zéro</li>
+        <li>Infra en Terraform pour une dizaine d'applications (dev, recette, prod)</li>
+        <li>Migration des jobs Jenkins vers GitLab CI</li>
+        <li>ETL de reporting Python / SQL à fréquence élevée, gros volumes de données générées, logs dans Loki</li>
+      </ul>
+    </div>
+    <div class="step work">
+      <p class="when">sept. 2020 → févr. 2024</p>
+      <h4>RentSafe <em>· Ingénieur DevOps &amp; Cloud</em></h4>
+      <ul>
+        <li>Une dizaine de microservices Docker sur un cluster Kubernetes de 3 nœuds chez AWS</li>
+        <li>CI/CD Jenkins + GitLab CI : une mise en prod passe d'environ 1 jour à 15 minutes</li>
+        <li>Terraform sur AWS : 3 environnements, réseau et IAM versionnés, CloudFront + ALB</li>
+        <li>Prometheus, Grafana et Loki : pannes détectées en moins de 5 min, dispo visée ~99,5 %</li>
+      </ul>
+    </div>
+    <div class="step">
+      <p class="when">Formation</p>
+      <h4>Epitech <em>· Master (titre RNCP ETNA)</em></h4>
+      <ul>
+        <li>Cursus par projets : cluster Kubernetes monté avec kubeadm sur des machines AWS provisionnées en Terraform</li>
+        <li>Ingress, observabilité, même app livrée en Helm et en Kustomize</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-      <section id="projets" class="band" aria-labelledby="projets-title">
-        <header class="band-head">
-          <div>
-            <p class="micro-label micro-accent">Projets 02</p>
-            <h2 id="projets-title" class="micro-title">Sélection</h2>
-          </div>
-          <a class="text-arrow" href="https://github.com/Curtis736?tab=repositories" rel="noopener noreferrer" target="_blank">
-            Tous les dépôts <span aria-hidden="true">↗</span>
-          </a>
-        </header>
+<!-- ============ CERTIFS ============ -->
+<section class="drawer" id="d-certifs" role="dialog" aria-modal="true" aria-labelledby="h-certifs" inert>
+  <header><span class="path">~/mur/<em>certifs</em></span><button class="close" type="button">esc · fermer</button></header>
+  <h2 id="h-certifs" tabindex="-1"><small>ls ~/mur</small>Accrochées au mur</h2>
+  <p class="lede">Chaque certification a été préparée en construisant un projet plutôt qu'en révisant des QCM.</p>
+  <div class="badge">
+    <svg width="54" height="54" viewBox="0 0 54 54" aria-hidden="true"><rect x="3" y="3" width="48" height="48" rx="10" fill="#2a2114" stroke="#ffb02e" stroke-width="2"/><text x="27" y="33" text-anchor="middle" font-family="IBM Plex Mono" font-size="13" font-weight="600" fill="#ffb02e">SAA</text></svg>
+    <div><span class="st">✓ obtenue</span><h4>AWS Certified Solutions Architect – Associate</h4><p>SAA-C03. Préparée avec l'AWS Order Processing Lab : sécurité, résilience, performance et coût.</p></div>
+  </div>
+  <div class="badge">
+    <svg width="54" height="54" viewBox="0 0 54 54" aria-hidden="true"><polygon points="27,3 49,15 49,39 27,51 5,39 5,15" fill="#211a2c" stroke="#a58bff" stroke-width="2"/><text x="27" y="32" text-anchor="middle" font-family="IBM Plex Mono" font-size="12" font-weight="600" fill="#c9b8ff">TF</text></svg>
+    <div><span class="st">✓ obtenue</span><h4>HashiCorp Certified: Terraform Associate</h4><p>003. État distant et verrouillage, modules, import de ressources existantes.</p></div>
+  </div>
+  <div class="badge">
+    <svg width="54" height="54" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="23" fill="none" stroke="#4cf2b0" stroke-width="2" stroke-dasharray="5 4"/><text x="27" y="32" text-anchor="middle" font-family="IBM Plex Mono" font-size="12" font-weight="600" fill="#4cf2b0">CKA</text></svg>
+    <div><span class="st wip">● en préparation</span><h4>Certified Kubernetes Administrator</h4><p>Installation, ordonnancement, réseau, stockage, et surtout dépannage.</p></div>
+  </div>
+</section>
 
-        <a class="study study-featured" data-reveal href="https://github.com/Curtis736/aws-order-processing-lab" target="_blank" rel="noopener noreferrer">
-          <p class="study-tag">Projet d’entraînement · Certification AWS SAA-C03 obtenue</p>
-          <div class="study-metric">
-            <p class="micro-label">Services AWS mis en œuvre</p>
-            <p class="metric">12</p>
-          </div>
-          <h3>Traitement de commandes serverless sur AWS</h3>
-          <p class="study-desc">
-            Une commande traverse API Gateway, Lambda et DynamoDB, puis part sur EventBridge et
-            SQS vers un worker, avec file de rebut après trois échecs. Le frontend est servi par
-            CloudFront devant un bucket privé, et Cognito protège l’écriture. 47 ressources
-            Terraform, analysées par Checkov, avec des scénarios de panne documentés.
-          </p>
-          <p class="study-honest">
-            Projet personnel construit pour apprendre, pas une mission client. Dimensionné pour
-            coûter presque rien et détruit après chaque exercice.
-          </p>
-          <ul class="chips">
-            <li>Terraform</li>
-            <li>Lambda</li>
-            <li>DynamoDB</li>
-            <li>EventBridge</li>
-            <li>SQS</li>
-            <li>Cognito</li>
-            <li>Checkov</li>
-          </ul>
-          <span class="study-arrow" aria-hidden="true">↗</span>
-        </a>
+<!-- ============ À PROPOS ============ -->
+<section class="drawer" id="d-apropos" role="dialog" aria-modal="true" aria-labelledby="h-apropos" inert>
+  <header><span class="path">~/mug/<em>à-propos</em></span><button class="close" type="button">esc · fermer</button></header>
+  <h2 id="h-apropos" tabindex="-1"><small>cat README.md</small>Pause café</h2>
+  <div class="about">
+    <p>Je suis Curtis, ingénieur DevOps depuis 2020. Je viens du développement (Python, Bash, SQL, Node.js), et ce qui m'a fait basculer, c'est de voir le code tourner pour de vrai : le livrer sans stress, le surveiller, le réparer vite et savoir ce qu'il coûte.</p>
+    <p>En six ans, j'ai travaillé dans trois contextes très différents : une start-up, un grand groupe bancaire et une usine. À chaque fois, le même fil rouge : tout décrire en code, automatiser la livraison et rendre la production lisible.</p>
 
-        <div class="study-grid">
-          <a class="study" data-reveal href="https://github.com/Curtis736/openyard" target="_blank" rel="noopener noreferrer">
-            <p class="study-tag">Cloud open source</p>
-            <div class="study-metric">
-              <p class="micro-label">Objets Kubernetes décrits</p>
-              <p class="metric">16</p>
-            </div>
-            <h3>OpenYard</h3>
-            <p class="study-desc">
-              Open cloud multi-tenant : projets (ns + quotas + API key), workloads →
-              pods + Ingress, SQLite, e2e kind, VM Linux.
-            </p>
-            <ul class="chips">
-              <li>Docker</li>
-              <li>Kubernetes</li>
-              <li>Compute</li>
-              <li>FastAPI</li>
-            </ul>
-            <span class="study-arrow" aria-hidden="true">↗</span>
-          </a>
+    <div class="stats about-stats">
+      <div><b>6 ans</b><span>de DevOps</span></div>
+      <div><b>~50</b><span>serveurs gérés</span></div>
+      <div><b>15 min</b><span>pour livrer, contre 1 jour</span></div>
+      <div><b>99,5 %</b><span>de dispo visée</span></div>
+    </div>
 
-          <a class="study" data-reveal href="https://github.com/Curtis736/hop-url" target="_blank" rel="noopener noreferrer">
-            <p class="study-tag">Service &amp; conteneur</p>
-            <div class="study-metric">
-              <p class="micro-label">CI complète, dernière exécution</p>
-              <p class="metric">100 s</p>
-            </div>
-            <h3>Hop URL</h3>
-            <p class="study-desc">
-              Le plus petit service utile que je pouvais industrialiser entièrement : un
-              raccourcisseur d’URL en FastAPI. L’intérêt est la chaîne autour — 8 tests, image
-              non-root, analyse Trivy, publication de l’image, manifests pour kind et un point
-              <code>/metrics</code> au format Prometheus.
-            </p>
-            <ul class="chips">
-              <li>FastAPI</li>
-              <li>Docker</li>
-              <li>Kubernetes</li>
-              <li>Prometheus</li>
-            </ul>
-            <span class="study-arrow" aria-hidden="true">↗</span>
-          </a>
+    <h3>Ce que j'ai fait, en détail</h3>
 
-          <a class="study" data-reveal href="https://github.com/Curtis736/taskboard-k8s" target="_blank" rel="noopener noreferrer">
-            <p class="study-tag">Orchestration</p>
-            <div class="study-metric">
-              <p class="micro-label">Objets Kubernetes décrits</p>
-              <p class="metric">19</p>
-            </div>
-            <h3>TaskBoard Kubernetes</h3>
-            <p class="study-desc">
-              Le même déploiement écrit deux fois, en Kustomize et en Helm, pour comprendre où
-              chacun est réellement pertinent. Overlays par environnement, politiques réseau,
-              probes, contraintes de sécurité et validation de schéma en intégration continue.
-            </p>
-            <ul class="chips">
-              <li>Kubernetes</li>
-              <li>Kustomize</li>
-              <li>Helm</li>
-              <li>kind</li>
-            </ul>
-            <span class="study-arrow" aria-hidden="true">↗</span>
-          </a>
+    <details class="xp" open>
+      <summary class="xp-h"><b>SEDI-ATI</b><span>sept. 2025 → aujourd'hui · Ingénieur DevOps</span></summary>
+      <p class="xp-c">Fabricant de fibres optiques. Je gère l'infra on-premise de FSOP, l'application de traçabilité de la production : les opérateurs pointent sur des tablettes, les données passent par une API et SQL Server, puis partent chaque jour vers l'ERP SILOG. Le parc mélange Linux (Red Hat, Ubuntu) et Windows.</p>
 
-          <a class="study" data-reveal href="https://github.com/Curtis736/aws-ecs-terraform" target="_blank" rel="noopener noreferrer">
-            <p class="study-tag">Cloud &amp; infrastructure as code</p>
-            <div class="study-metric">
-              <p class="micro-label">Ressources Terraform</p>
-              <p class="metric">32</p>
-            </div>
-            <h3>TaskBoard sur AWS</h3>
-            <p class="study-desc">
-              La même API, mais sur des services managés et avec une facture. VPC sur deux zones
-              de disponibilité, ECS Fargate en 0,25 vCPU et 512 Mio, load balancer applicatif,
-              registre d’images, rôles au plus juste et fédération OIDC pour la CI.
-            </p>
-            <ul class="chips">
-              <li>ECS Fargate</li>
-              <li>Terraform</li>
-              <li>ALB</li>
-              <li>OIDC</li>
-            </ul>
-            <span class="study-arrow" aria-hidden="true">↗</span>
-          </a>
+      <h5>L'application en production</h5>
+      <ul>
+        <li><b>Mise en service de FSOP</b> sur <a href="https://fsop.sedi-ati.com" target="_blank" rel="noopener">fsop.sedi-ati.com</a> : pointage des temps sur les lancements de production (démarrer, mettre en pause, terminer une étape), temps restant estimé par lancement, fiches de traçabilité (composants, lots, mesures) et écran admin pour superviser les opérateurs.</li>
+        <li><b>Architecture :</b> interface tablette en JavaScript servie par Nginx (HTTPS), API Node.js / Express 5 avec JWT, SQL Server (base applicative + base ERP), Redis en cache, et montages réseau CIFS vers les dossiers qualité.</li>
+        <li><b>Plusieurs machines, chacune son rôle :</b> prod, test, CI et le serveur Windows de l'ERP, pour qu'une version cassée ou un build lourd ne ralentisse jamais l'atelier.</li>
+      </ul>
 
-          <a class="study" data-reveal href="https://github.com/Curtis736/taskboard-gitops" target="_blank" rel="noopener noreferrer">
-            <p class="study-tag">GitOps</p>
-            <div class="study-metric">
-              <p class="micro-label">Applications Argo CD</p>
-              <p class="metric">2</p>
-            </div>
-            <h3>TaskBoard GitOps</h3>
-            <p class="study-desc">
-              Ne plus déployer à la main, même en local. Argo CD synchronise le cluster depuis
-              Git : l’état voulu vit dans le dépôt, pas dans mon historique de commandes.
-            </p>
-            <ul class="chips">
-              <li>Argo CD</li>
-              <li>GitOps</li>
-              <li>Kubernetes</li>
-            </ul>
-            <span class="study-arrow" aria-hidden="true">↗</span>
-          </a>
-        </div>
+      <h5>Infrastructure en code</h5>
+      <ul>
+        <li><b>Terraform</b> déclare les hôtes (prod, test, CI, ERP) et <b>génère l'inventaire Ansible</b> : une seule source de vérité.</li>
+        <li><b>Ansible pour Linux et Windows :</b> j'ai écrit le rôle <code>silog_ssh_runner</code> qui prépare le serveur Windows de l'ERP (OpenSSH, configuration sshd, pare-feu, clé, tâche planifiée de secours), d'abord via WinRM puis en SSH, avec les collections <code>ansible.windows</code> / <code>community.windows</code>. Des playbooks de vérification en lecture seule contrôlent l'état sans rien modifier.</li>
+        <li><b>Une cinquantaine de machines</b> pour les applications internes, provisionnées dans des états préconfigurés, sécurité comprise.</li>
+        <li><b>Secrets</b> dans HashiCorp Vault, images Docker non-root, service systemd pour relancer l'appli au démarrage.</li>
+      </ul>
 
-        <ul class="repo-list">
-          <li>
-            <a href="https://github.com/Curtis736/taskboard-observability" target="_blank" rel="noopener noreferrer">
-              <span class="repo-name">TaskBoard Observabilité</span>
-              <span class="repo-desc">Prometheus et Grafana provisionnés par manifests</span>
-              <span class="repo-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/Curtis736/taskboard-api" target="_blank" rel="noopener noreferrer">
-              <span class="repo-name">TaskBoard API</span>
-              <span class="repo-desc">FastAPI, 7 tests, image non-root, analyse Trivy</span>
-              <span class="repo-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/Curtis736/taskboard-finops" target="_blank" rel="noopener noreferrer">
-              <span class="repo-name">TaskBoard FinOps</span>
-              <span class="repo-desc">Budgets, étiquettes de coût, détection d’anomalies</span>
-              <span class="repo-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/Curtis736/taskboard-performance" target="_blank" rel="noopener noreferrer">
-              <span class="repo-name">TaskBoard Performance</span>
-              <span class="repo-desc">Politiques de cache, autoscaling, scénario k6</span>
-              <span class="repo-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/Curtis736/taskboard-terraform-modules" target="_blank" rel="noopener noreferrer">
-              <span class="repo-name">Modules Terraform</span>
-              <span class="repo-desc">Briques réutilisables, étiquettes communes, OIDC</span>
-              <span class="repo-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/Curtis736/taskboard-actions" target="_blank" rel="noopener noreferrer">
-              <span class="repo-name">TaskBoard Actions</span>
-              <span class="repo-desc">Workflows d’intégration réutilisables</span>
-              <span class="repo-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/Curtis736/s3-static-site" target="_blank" rel="noopener noreferrer">
-              <span class="repo-name">S3 Static Site</span>
-              <span class="repo-desc">Bucket privé, CloudFront OAC, Terraform</span>
-              <span class="repo-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-        </ul>
-      </section>
+      <h5>Chaîne de livraison</h5>
+      <ul>
+        <li><b>GitHub Actions répliqué vers GitLab CI</b>, plus Jenkins, en trois pipelines : intégration complète, tests rapides et sécurité.</li>
+        <li>À chaque push : tests backend sur plusieurs versions de Node avec couverture, smoke test du frontend, contrôle qualité, <b>npm audit</b> (niveau high), tests d'exécution (health check), validation des builds Docker, analyse <b>SonarQube</b>.</li>
+        <li><b>Prod verrouillée :</b> le déploiement ne part que par un runner GitLab dédié. Images construites une fois, Compose séparés pour la prod, le test, le dev et la supervision.</li>
+      </ul>
 
-      <section class="marquee-band" aria-hidden="true">
-        <div class="marquee">
-          <div class="marquee-track">
-            <span>AWS</span><span>Terraform</span><span>Kubernetes</span><span>Docker</span><span>Argo CD</span><span>GitHub Actions</span><span>Prometheus</span><span>Grafana</span><span>Helm</span><span>Kustomize</span><span>kind</span><span>FastAPI</span><span>Python</span><span>Lambda</span><span>DynamoDB</span>
-            <span>AWS</span><span>Terraform</span><span>Kubernetes</span><span>Docker</span><span>Argo CD</span><span>GitHub Actions</span><span>Prometheus</span><span>Grafana</span><span>Helm</span><span>Kustomize</span><span>kind</span><span>FastAPI</span><span>Python</span><span>Lambda</span><span>DynamoDB</span>
-          </div>
-        </div>
-        <div class="marquee marquee-reverse">
-          <div class="marquee-track">
-            <span>EventBridge</span><span>SQS</span><span>ECS Fargate</span><span>CloudFront</span><span>S3</span><span>Cognito</span><span>IAM</span><span>VPC</span><span>ALB</span><span>ECR</span><span>Trivy</span><span>Checkov</span><span>kubeconform</span><span>k6</span><span>nginx</span>
-            <span>EventBridge</span><span>SQS</span><span>ECS Fargate</span><span>CloudFront</span><span>S3</span><span>Cognito</span><span>IAM</span><span>VPC</span><span>ALB</span><span>ECR</span><span>Trivy</span><span>Checkov</span><span>kubeconform</span><span>k6</span><span>nginx</span>
-          </div>
-        </div>
-      </section>
+      <h5>Supervision et alertes</h5>
+      <ul>
+        <li><b>Prometheus + Alertmanager + Grafana</b> provisionnés en code, avec un dashboard SEDI dédié.</li>
+        <li><b>8 alertes</b> : backend injoignable, cible de monitoring tombée, taux d'erreurs HTTP élevé, latence p95 élevée, disque presque plein, RAM saturée, CPU élevé, Redis injoignable.</li>
+        <li>Alertes envoyées <b>sur Teams et par e-mail</b>.</li>
+      </ul>
 
-      <section id="parcours" class="band" aria-labelledby="parcours-title">
-        <header class="band-head">
-          <div>
-            <p class="micro-label micro-accent">Parcours 03</p>
-            <h2 id="parcours-title" class="micro-title">Expérience &amp; formation</h2>
-          </div>
-        </header>
+      <h5>Exploitation au quotidien (tout automatisé)</h5>
+      <ul>
+        <li><b>Watchdog toutes les 10 minutes</b> qui vérifie la base, les modèles de fiches et la chaîne vers SILOG.</li>
+        <li>Présence des modèles FSOP vérifiée toutes les 5 minutes, intégrité des données toutes les 6 heures, nettoyage des données incohérentes chaque nuit, <b>rapport de santé chaque lundi</b>, purge des logs de plus de 30 jours.</li>
+        <li><b>Sauvegardes</b> scriptées des volumes Docker, de la config et des certificats, avec rétention de 14 jours.</li>
+        <li><b>Transfert vers l'ERP :</b> script PowerShell sur le serveur Windows (log horodaté, rotation à 10 Mo, état final Succès / Erreur / Refusé et code de sortie lisible par le planificateur), lancé chaque matin à 7 h.</li>
+        <li><b>Runbook d'incident</b> écrit, documentation utilisateur pour l'atelier et documentation technique servies directement par l'appli.</li>
+      </ul>
 
-        <ol class="roles">
-          <li class="role" data-reveal>
-            <div class="role-meta">
-              <p class="role-kind">Expérience</p>
-              <p class="role-place">RentSafe</p>
-            </div>
-            <div class="role-body">
-              <h3>Ingénieur DevOps</h3>
-              <p class="role-lead">
-                Déploiement et exploitation de la plateforme en production, servie aujourd’hui
-                sur
-                <a class="link" href="https://www.rentsafe-app.com" rel="noopener">
-                  rentsafe-app.com</a>, sur un cluster Kubernetes hébergé sur AWS.
-              </p>
-              <ul class="role-points">
-                <li>
-                  <strong>Kubernetes en production</strong> — l’application tourne dans un
-                  cluster sur AWS : charges décrites en manifestes, exposition des services par
-                  un contrôleur d’ingress, montées de version sans coupure et retour arrière
-                  possible sur la version précédente.
-                </li>
-                <li>
-                  <strong>Deux chemins d’entrée distincts</strong> — l’interface est distribuée
-                  par CloudFront pour être servie au plus près des utilisateurs, tandis que
-                  l’API passe par un load balancer applicatif en région eu-west-2. Le front et
-                  le back évoluent donc sans se bloquer.
-                </li>
-                <li>
-                  <strong>Environnements séparés</strong> — les ressources portent leur
-                  environnement dans leur nom, ce qui permet de valider un changement ailleurs
-                  qu’en production et de savoir en un coup d’œil sur quoi on intervient.
-                </li>
-                <li>
-                  <strong>Livraison automatisée</strong> — construction des images, publication
-                  dans un registre et déploiement déclenchés par la chaîne d’intégration. Le
-                  déploiement manuel reste l’exception, pas la procédure.
-                </li>
-              </ul>
-              <ul class="chips">
-                <li>Kubernetes</li>
-                <li>AWS</li>
-                <li>CloudFront</li>
-                <li>ALB</li>
-                <li>Docker</li>
-                <li>CI/CD</li>
-              </ul>
-            </div>
-          </li>
+      <h5>Outils pour l'équipe qualité</h5>
+      <ul>
+        <li><b>AUTO-RCI</b> (Python, Tkinter) : génère automatiquement les fiches Word RCI, RE et PV pour chaque numéro de série à partir des mesures Excel, insère images et courbes, récupère les graphiques dichroïques, remplit la mesure de fin du cyclage thermique et convertit le tout en PDF.</li>
+        <li><b>Vérificateur de PDF</b> : contrôle en masse que chaque rapport de test porte le bon numéro de série, le bon programme et aucun échec, avec un rapport exportable.</li>
+        <li><b>Agent de synchronisation FSOP → Excel</b> (service Windows) : dès qu'un opérateur ferme une fiche Word, l'agent lit les valeurs saisies et les écrit dans le classeur de mesures du bon numéro de série.</li>
+      </ul>
+      <div class="tags xp-tags"><span>Node.js</span><span>SQL Server</span><span>Docker</span><span>Nginx</span><span>Terraform</span><span>Ansible</span><span>Vault</span><span>GitHub Actions</span><span>GitLab CI</span><span>Jenkins</span><span>SonarQube</span><span>Prometheus</span><span>Grafana</span><span>PowerShell</span><span>Python</span></div>
+    </details>
 
-          <li class="role" data-reveal>
-            <div class="role-meta">
-              <p class="role-kind">Expérience</p>
-              <p class="role-place">Sedi ATI</p>
-            </div>
-            <div class="role-body">
-              <h3>Ingénieur DevOps</h3>
-              <p class="role-lead">
-                Mise en service d’une application de suivi de production utilisée dans
-                l’atelier, et automatisation du travail répétitif des équipes qualité.
-              </p>
-              <ul class="role-points">
-                <li>
-                  <strong>Application FSOP</strong> — pointage des temps sur les lancements de
-                  production, fiches de traçabilité et remontée des données vers l’ERP SILOG.
-                  API Express, interface tablette servie par Nginx, bases SQL Server.
-                </li>
-                <li>
-                  <strong>Chaîne de livraison</strong> — images Docker et fichiers Compose
-                  distincts pour la production, le test et la supervision. Pipelines Jenkins
-                  et workflows GitHub Actions séparés en trois rôles : intégration, tests
-                  rapides et analyse de sécurité.
-                </li>
-                <li>
-                  <strong>Provisionnement en code</strong> — Terraform pour la déclaration des
-                  hôtes, rôle et playbooks Ansible pour préparer puis vérifier le runner qui
-                  dialogue avec l’ERP. Rien de configuré à la main sur les serveurs.
-                </li>
-                <li>
-                  <strong>Qualité outillée</strong> — analyse SonarQube, suites de tests back
-                  et front exécutées en intégration continue sous Linux, tâches planifiées de
-                  nettoyage en production.
-                </li>
-                <li>
-                  <strong>Outillage métier en Python</strong> — génération automatique des
-                  fiches RCI, RE et PV depuis les mesures Excel, et contrôle automatisé des PDF
-                  de test : numéro de série, programme attendu et détection des échecs.
-                </li>
-              </ul>
-              <ul class="chips">
-                <li>Docker</li>
-                <li>Jenkins</li>
-                <li>GitHub Actions</li>
-                <li>Ansible</li>
-                <li>Terraform</li>
-                <li>SonarQube</li>
-                <li>Nginx</li>
-                <li>Node.js</li>
-                <li>SQL Server</li>
-                <li>Python</li>
-              </ul>
-            </div>
-          </li>
+    <details class="xp" open>
+      <summary class="xp-h"><b>Société Générale</b><span>mars 2024 → août 2025 · Ingénieur DevOps / Data</span></summary>
+      <p class="xp-c">En prestation dans l'équipe DevOps / plateforme, sur du Linux on-premise et un cloud privé interne. J'y gérais un parc d'une vingtaine de machines et une bonne partie des flux de données de reporting.</p>
+      <h5>Gestion du parc</h5>
+      <ul>
+        <li><b>Une vingtaine de machines</b> sous ma responsabilité : création, configuration, mises à jour et maintien dans un état identique d'un environnement à l'autre.</li>
+        <li><b>Construction des playbooks et rôles Ansible</b> qui configurent ces machines : plus aucune installation à la main, chaque serveur peut être reconstruit à l'identique.</li>
+      </ul>
+      <h5>Infrastructure en Terraform</h5>
+      <ul>
+        <li><b>Infra décrite en Terraform</b> : VM, réseau et stockage pour une dizaine d'applications, sur les environnements dev, recette et prod.</li>
+        <li>Terraform crée les machines, Ansible les configure : un changement d'infra se relit dans Git avant d'être appliqué.</li>
+      </ul>
+      <h5>Livraison</h5>
+      <ul>
+        <li><b>Migration des jobs Jenkins vers GitLab CI</b> : build, tests, images Docker et déploiement des applications et des traitements, avec des déploiements plus fiables et plus rapides.</li>
+      </ul>
+      <h5>Données</h5>
+      <ul>
+        <li><b>Beaucoup de données générées</b> : ETL de reporting en Python et SQL, lancés à haute fréquence, qui extraient les données des bases relationnelles et des API, les transforment et les chargent pour les rapports.</li>
+        <li>Traitements planifiés par cron et Jenkins, avec leurs <b>logs centralisés dans Loki</b> et des vues Grafana pour comprendre pourquoi un traitement a échoué.</li>
+      </ul>
+      <h5>Automatisation</h5>
+      <ul>
+        <li>Scripts Python et Bash qui remplacent des tâches d'exploitation manuelles et répétitives.</li>
+      </ul>
+      <div class="tags xp-tags"><span>Ansible</span><span>Terraform</span><span>OpenStack</span><span>Jenkins</span><span>GitLab CI</span><span>Docker</span><span>Python</span><span>SQL</span><span>Loki</span><span>Grafana</span><span>Linux</span></div>
+    </details>
 
-          <li class="role" data-reveal>
-            <div class="role-meta">
-              <p class="role-kind">Formation</p>
-              <p class="role-place">Epitech</p>
-            </div>
-            <div class="role-body">
-              <h3>Diplômé — MSc Pro</h3>
-              <p class="role-lead">
-                Un cursus par projets, sans cours magistral : on reçoit un objectif et une
-                documentation, et il faut livrer quelque chose qui tourne.
-              </p>
-              <ul class="role-points">
-                <li>
-                  <strong>Projet d’infrastructure cloud</strong> — provisionnement de machines
-                  AWS avec Terraform, puis montage d’un cluster Kubernetes avec kubeadm et un
-                  CNI, plutôt qu’un service managé, pour voir ce qu’un cluster demande
-                  réellement.
-                </li>
-                <li>
-                  <strong>Exposition et supervision</strong> — contrôleur d’ingress et pile
-                  d’observabilité déployés au-dessus du cluster, image applicative construite
-                  puis publiée dans un registre.
-                </li>
-                <li>
-                  <strong>Deux façons de déployer</strong> — la même application livrée en
-                  chart Helm et en overlays Kustomize, pour arbitrer entre les deux sur pièces
-                  et non sur principe.
-                </li>
-              </ul>
-              <ul class="chips">
-                <li>Terraform</li>
-                <li>kubeadm</li>
-                <li>Kubernetes</li>
-                <li>Helm</li>
-                <li>Kustomize</li>
-                <li>Docker</li>
-              </ul>
-            </div>
-          </li>
-        </ol>
+    <details class="xp" open>
+      <summary class="xp-h"><b>RentSafe</b><span>sept. 2020 → févr. 2024 · Ingénieur DevOps &amp; Cloud</span></summary>
+      <p class="xp-c">Start-up dont la webapp (<a href="https://www.rentsafe-app.com" target="_blank" rel="noopener">rentsafe-app.com</a>) tourne en production sur Kubernetes chez AWS. J'étais le DevOps de l'équipe produit : pipelines, mises en production, run et support aux développeurs pendant les incidents.</p>
+      <h5>Plateforme Kubernetes</h5>
+      <ul>
+        <li><b>Une dizaine de microservices</b> Docker (React Native, Django) sur un <b>cluster Kubernetes de 3 nœuds</b>.</li>
+        <li>Manifests, ingress, <b>montées de version sans coupure</b> (rolling updates) et retour possible à la version précédente.</li>
+      </ul>
+      <h5>Livraison</h5>
+      <ul>
+        <li><b>Jenkins + GitLab CI</b> : build des images, registre, tests automatiques, promotion dev → staging → prod.</li>
+        <li>Une mise en production qui prenait <b>environ une journée à la main</b> passe à <b>environ 15 minutes</b>.</li>
+      </ul>
+      <h5>Cloud en code</h5>
+      <ul>
+        <li><b>Terraform sur AWS</b> : 3 environnements séparés, réseau et droits IAM versionnés dans Git.</li>
+        <li>Interface servie par <b>CloudFront</b>, API derrière un <b>load balancer (ALB)</b> : le front et le back évoluent sans se bloquer.</li>
+        <li><b>Ansible</b> pour la configuration des serveurs Linux.</li>
+      </ul>
+      <h5>Run</h5>
+      <ul>
+        <li><b>Prometheus + Grafana</b> pour les métriques, logs des pods centralisés dans <b>Loki</b> pour analyser les incidents.</li>
+        <li>Pannes de pods ou de pipelines <b>détectées en moins de 5 minutes</b>, disponibilité visée autour de <b>99,5 %</b>.</li>
+      </ul>
+      <div class="tags xp-tags"><span>Kubernetes</span><span>Docker</span><span>AWS</span><span>Terraform</span><span>CloudFront</span><span>ALB</span><span>Jenkins</span><span>GitLab CI</span><span>Ansible</span><span>Prometheus</span><span>Grafana</span><span>Loki</span></div>
+    </details>
 
-        <div class="certs">
-          <p class="micro-label">Certifications</p>
+    <details class="xp">
+      <summary class="xp-h"><b>Projets perso</b><span>le soir, sur GitHub · 18 dépôts publics</span></summary>
+      <ul>
+        <li><b>OpenYard :</b> un petit cloud open source multi-tenant. Un projet crée un namespace avec quotas et clé API ; une image Docker devient Deployment, Service et Ingress ; on peut lancer des VM Ubuntu. Chart Helm, tests e2e sur kind, scan Trivy, Prometheus et Grafana.</li>
+        <li><b>Suite TaskBoard (9 dépôts) :</b> une même API déployée de toutes les façons : Kubernetes en Kustomize et en Helm (HPA, PDB, NetworkPolicy, pods durcis), ECS Fargate en Terraform (32 ressources), GitOps avec Argo CD, observabilité, budgets et détection d'anomalies de coût, cache CloudFront et autoscaling, workflows CI réutilisables.</li>
+        <li><b>AWS Order Processing Lab :</b> appli serverless (API Gateway, Lambda, DynamoDB, EventBridge, SQS, Cognito, CloudFront) en 47 ressources Terraform, analysée par Checkov, avec des scénarios de panne rejouables.</li>
+        <li><b>Hop URL :</b> un raccourcisseur d'URL industrialisé de bout en bout (tests, image non-root, Trivy, GHCR, Kubernetes, métriques).</li>
+      </ul>
+    </details>
 
-          <ul class="cert-row">
-            <li class="cert-card" data-reveal>
-              <div class="cert-head">
-                <img
-                  class="cert-badge"
-                  src="assets/img/certs/aws-saa-c03.png"
-                  alt=""
-                  width="340"
-                  height="340"
-                  decoding="async"
-                >
-                <p class="cert-state">Obtenue</p>
-              </div>
-              <h3>AWS Certified Solutions Architect – Associate</h3>
-              <p class="cert-code">SAA-C03</p>
-              <p class="cert-desc">
-                Concevoir sur AWS des architectures sécurisées, résilientes, performantes et
-                optimisées en coût — les quatre domaines de l’examen. Je l’ai préparée en
-                construisant le projet de traitement de commandes serverless présenté plus
-                haut, plutôt qu’en révisant des questions.
-              </p>
-            </li>
+    <h3>Mes règles de base</h3>
+    <ul class="rules">
+      <li>aucune ressource créée à la main dans une console</li>
+      <li>chaque dépôt a sa CI, sa doc et ses limites écrites</li>
+      <li>des pannes rejouables plutôt que des captures d'écran</li>
+      <li>environnements détruits après l'exercice, coût vérifié</li>
+    </ul>
 
-            <li class="cert-card" data-reveal>
-              <div class="cert-head">
-                <img
-                  class="cert-badge"
-                  src="assets/img/certs/terraform-associate.png"
-                  alt=""
-                  width="1600"
-                  height="1600"
-                  decoding="async"
-                >
-                <p class="cert-state">Obtenue</p>
-              </div>
-              <h3>HashiCorp Certified: Terraform Associate</h3>
-              <p class="cert-code">003</p>
-              <p class="cert-desc">
-                Décrire une infrastructure en code et en maîtriser le cycle de vie : plan et
-                apply, état distant et verrouillage, modules réutilisables, variables et
-                sorties, importation de ressources existantes.
-              </p>
-            </li>
+    <h3>Hors du terminal</h3>
+    <p>Gamer depuis toujours : le PC monté à la main sur le bureau n'est pas là pour la déco. Côté univers, un gros faible pour One Piece et Zelda.</p>
 
-            <li class="cert-card cert-card-progress" data-reveal>
-              <div class="cert-head">
-                <img
-                  class="cert-badge"
-                  src="assets/img/certs/cka.png"
-                  alt=""
-                  width="340"
-                  height="340"
-                  decoding="async"
-                >
-                <p class="cert-state cert-state-progress">En préparation</p>
-              </div>
-              <h3>Certified Kubernetes Administrator</h3>
-              <p class="cert-code">CKA</p>
-              <p class="cert-desc">
-                Administration d’un cluster en conditions réelles : installation et
-                configuration, ordonnancement des charges, services et réseau, stockage, et
-                surtout dépannage, qui pèse à lui seul le tiers de l’examen.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section>
+    <h3>En ce moment</h3>
+    <p>Disponible pour une mission DevOps en freelance en Île-de-France.</p>
+  </div>
+</section>
 
-      <section id="apropos" class="band band-raised" aria-labelledby="apropos-title">
-        <header class="band-head">
-          <p class="micro-label">À propos</p>
-        </header>
-        <div class="about">
-          <h2 id="apropos-title">
-            J’ai appris à écrire du code à Epitech. Ce qui m’a retenu ensuite,
-            <em>c’est de le faire tourner.</em>
-          </h2>
-          <div class="about-copy">
-            <p>
-              J’ai travaillé sur des sujets DevOps chez Sedi ATI puis chez RentSafe. Je suis
-              certifié AWS Solutions Architect Associate et Terraform Associate, et je prépare
-              la CKA. Le reste du temps, je monte des environnements complets chez moi — c’est
-              là que je vois si j’ai compris un outil ou si je l’ai seulement recopié.
-            </p>
-            <p>
-              Ce qui m’intéresse, c’est la chaîne entière : décrire une plateforme en code, la
-              livrer automatiquement, la surveiller et connaître son coût. Quand ces quatre
-              briques sont en place, un changement se relit dans une pull request, se rejoue à
-              l’identique et s’annule en revenant en arrière. C’est ce qui rend une plateforme
-              réparable un vendredi soir.
-            </p>
-          </div>
-        </div>
-      </section>
+<!-- ============ CONTACT ============ -->
+<section class="drawer contact" id="d-contact" role="dialog" aria-modal="true" aria-labelledby="h-contact" inert>
+  <header><span class="path">~/canard/<em>contact</em></span><button class="close" type="button">esc · fermer</button></header>
+  <h2 id="h-contact" tabindex="-1"><small>rubber-duck debugging</small>Explique-moi ton problème</h2>
+  <p class="lede">Le canard écoute tout, mais c'est moi qui réponds. Infra, pipelines ou facture cloud qui grimpe : écris-moi.</p>
+  <div class="line"><a href="mailto:kumbicurtis22@gmail.com"><b>kumbicurtis22@gmail.com</b></a><span>e-mail <button class="copy" type="button" data-copy="kumbicurtis22@gmail.com">copier</button></span></div>
+  <a class="line" href="https://github.com/Curtis736" target="_blank" rel="noopener"><b>github.com/Curtis736</b><span>code ↗</span></a>
+  <p class="note mt18">// Île-de-France · freelance ou CDI</p>
+</section>
 
-      <section id="contact" class="cta" aria-labelledby="cta-title">
-        <p class="micro-label micro-accent">Contact</p>
-        <h2 id="cta-title">Parlons infrastructure, livraison et coûts.</h2>
-        <p class="cta-lead">
-          Mon activité technique est publique : le code, les pipelines et les décisions
-          d’architecture se lisent directement dans chaque dépôt.
-        </p>
-        <div class="cta-actions">
-          <a class="btn btn-solid" href="https://github.com/Curtis736" target="_blank" rel="me noopener noreferrer">
-            github.com/Curtis736 <span aria-hidden="true">↗</span>
-          </a>
-          <div class="optional-links" data-optional-links></div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <svg class="logo-mark logo-mark-lg" viewBox="0 0 60 60" aria-hidden="true" focusable="false"><use href="#monogram-cr"></use></svg>
-          <p>
-            Ingénieur DevOps &amp; Cloud. Diplômé Epitech, certifié AWS Solutions Architect
-            Associate et Terraform Associate.
-          </p>
-        </div>
-
-        <nav class="footer-col" aria-label="Projets">
-          <h2>Projets</h2>
-          <ul>
-            <li><a href="https://github.com/Curtis736/aws-order-processing-lab" target="_blank" rel="noopener noreferrer">AWS Order Processing Lab</a></li>
-            <li><a href="https://github.com/Curtis736/openyard" target="_blank" rel="noopener noreferrer">OpenYard</a></li>
-            <li><a href="https://github.com/Curtis736/hop-url" target="_blank" rel="noopener noreferrer">Hop URL</a></li>
-            <li><a href="https://github.com/Curtis736/taskboard-k8s" target="_blank" rel="noopener noreferrer">TaskBoard Kubernetes</a></li>
-            <li><a href="https://github.com/Curtis736/aws-ecs-terraform" target="_blank" rel="noopener noreferrer">TaskBoard sur AWS</a></li>
-          </ul>
-        </nav>
-
-        <nav class="footer-col" aria-label="Sections du site">
-          <h2>Sections</h2>
-          <ul>
-            <li><a href="#competences">Compétences</a></li>
-            <li><a href="#projets">Projets</a></li>
-            <li><a href="#parcours">Parcours</a></li>
-            <li><a href="#apropos">À propos</a></li>
-          </ul>
-        </nav>
-
-      </div>
-
-      <div class="footer-end">
-        <p>© 2026 Curtis Robert</p>
-        <a class="text-arrow" href="#accueil">Haut de page <span aria-hidden="true">↑</span></a>
-      </div>
-    </footer>
-  </body>
+<script type="module" src="assets/js/room.js"></script>
+</body>
 </html>
