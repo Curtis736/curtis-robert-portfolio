@@ -1,51 +1,59 @@
 # Site de Curtis Robert
 
-CV en ligne statique, en français, réalisé en HTML, CSS et JavaScript sans
-framework. Le site présente le parcours, les compétences et une sélection de
-projets DevOps et Cloud de Curtis Robert.
+Portfolio interactif en 3D, en français. Le visiteur arrive en vue plongeante
+sur un bureau d'ingénieur DevOps la nuit, et chaque objet ouvre une section :
+projets, compétences, parcours, certifications, à propos et contact.
 
 **Site public :** <https://curtis736.github.io/curtis-robert-portfolio/>
 
 ## Direction visuelle
 
-Le site est bâti autour d'une idée simple : chaque projet est présenté comme une
-étude d'ingénierie, avec un chiffre mesuré mis en avant.
+- **Scène** : un bureau construit entièrement en primitives Three.js (aucun
+  modèle 3D externe ni image distante). Deux écrans en aluminium, un mini rack
+  homelab, un clavier mécanique avec éclairage RGB, un PC gamer, un casque, un
+  canard en plastique et un mug fumant.
+- **Objets cliquables** :
 
-- **Palette** : fond `#020204`, surfaces `#07070a` et `#0a0a0e`, texte `#f4f4f7`.
-  Un seul accent rouge, décliné en deux valeurs — `#f9233a` pour le texte sur
-  fond noir et `#d81e30` pour les boutons pleins, afin de garder un contraste
-  suffisant avec le blanc.
-- **Typographie** : Geist pour les titres, avec un interlettrage négatif marqué,
-  Geist Mono pour les micro-libellés capitalisés, Instrument Serif en italique
-  pour les incises. Les trois fontes sont hébergées dans le dépôt
-  (144 Ko, sous-ensemble latin), donc aucune requête vers un tiers.
-- **Chiffres réels** : les valeurs affichées sont comptées dans les dépôts
-  (ressources Terraform, objets Kubernetes, services AWS, durée de CI), pas
-  estimées. Les projets personnels sont explicitement présentés comme tels.
-- **Fond animé** : champ d'étoiles et globe filaire en canvas 2D natif, sans
-  bibliothèque 3D à charger. La boucle s'arrête dès que le héro quitte l'écran,
-  et un seul rendu statique est produit si le visiteur a demandé à réduire les
-  animations.
-- **Grille** : bloc de composition de 68 rem centré, bandes séparées par des
-  filets à un pixel, alternance de fonds pour marquer les sections.
+  | Objet | Section |
+  | --- | --- |
+  | Écrans (terminal + tableau de bord) | Projets |
+  | Rack homelab | Compétences |
+  | Tableau blanc | Parcours |
+  | Cadres au mur | Certifications |
+  | Mug et PC gamer | À propos |
+  | Canard | Contact |
 
-Tout tient dans un fichier HTML, une feuille de style et un script : pas de
-framework, donc pas d'étape de compilation à maintenir. Les contrôles et la
-publication sont entièrement pris en charge par GitHub Actions.
+- **Palette** : fond graphite `#121014`, accent ambre `#ffb02e`, vert terminal
+  `#4cf2b0`.
+- **Typographie** : Sora pour les titres, IBM Plex Mono pour les libellés.
+- **Écrans vivants** : le terminal tape de vraies commandes des dépôts, le
+  second écran affiche un tableau de bord de supervision animé (valeurs
+  décoratives).
+- **Chiffres réels** : les compteurs de la section Projets (dépôts publics,
+  ressources Terraform, workflows CI, tests Python) sont comptés dans les dépôts.
+- **Accessibilité** : une barre `~$ ls` en bas de l'écran donne accès à toutes
+  les sections au clavier, la touche Échap ferme un panneau, les panneaux
+  fermés sont `inert`, et les animations sont coupées si le visiteur a demandé
+  à les réduire. Si WebGL n'est pas disponible, le contenu reste accessible par
+  le menu.
+
+Pas de framework ni d'étape de compilation : Three.js est fourni dans
+`assets/vendor/`, ce qui respecte la politique de sécurité de contenu
+(`script-src 'self'`) du conteneur nginx.
 
 ## Structure
 
 ```text
 .
-├── index.html                 # contenu et métadonnées
+├── index.html                  # contenu des sections
 ├── assets/
-│   ├── css/styles.css         # identité visuelle et responsive
-│   ├── fonts/                 # Geist, Geist Mono, Instrument Serif (SIL OFL 1.1)
-│   └── js/
-│       ├── main.js            # canvas, progression, révélations, menu
-│       └── site.config.js     # LinkedIn, e-mail et CV
-├── terraform/                 # S3 privé + CloudFront OAC
-├── .github/workflows/         # contrôles et déploiement manuel
+│   ├── css/site.css            # styles et responsive
+│   ├── js/room.js              # scène 3D, caméra, interactions, panneaux
+│   ├── vendor/                 # three.module.min.js (r160, licence MIT)
+│   ├── img/certs/              # badges de certification
+│   └── favicon.svg
+├── terraform/                  # S3 privé + CloudFront OAC
+├── .github/workflows/          # contrôles et déploiements
 ├── Dockerfile
 └── nginx.conf
 ```
@@ -90,20 +98,15 @@ en-têtes HTTP de sécurité et utilise un utilisateur non privilégié.
 
 ## Modifier le contenu
 
-- Les textes, expériences et projets sont dans `index.html`.
-- Les couleurs et la typographie sont centralisées au début de
-  `assets/css/styles.css`.
-- LinkedIn, e-mail et CV sont volontairement absents tant que leurs valeurs ne
-  sont pas connues. Les renseigner dans `assets/js/site.config.js`. Un champ vide
-  n'affiche aucun lien.
-- Si un PDF est ajouté, le placer par exemple dans `assets/docs/cv-curtis-robert.pdf`
-  puis renseigner ce chemin dans `cvUrl`.
-- Les certifications sont listées avec leur intitulé et leur code d'examen. La
-  CKA est marquée « en préparation » et ne doit passer à « obtenue » qu'une fois
-  l'examen réussi.
-- Les dates d'expérience restent à ajouter, seulement après vérification.
-
-Le projet `AWS Order Processing Lab` renvoie vers son dépôt GitHub public.
+- Les textes des sections (projets, compétences, parcours, certifications,
+  à propos, contact) sont dans `index.html`, un `<section class="drawer">` par
+  section.
+- La scène 3D, la position des objets et les cadrages de caméra sont dans
+  `assets/js/room.js` (objet `focus` pour le zoom sur chaque objet).
+- Les couleurs sont centralisées dans les variables `:root` de
+  `assets/css/site.css`.
+- La CKA est marquée « en préparation » : ne la passer à « obtenue » qu'une
+  fois l'examen réussi.
 
 ## Architecture AWS
 
